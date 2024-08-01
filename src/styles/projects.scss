@@ -1,0 +1,98 @@
+#projects-gallery {
+    display: flex;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+    .projects-gallery-container {
+        width: 75vw;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    .project {
+        color: #000;
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+        align-items: center;
+        padding: 50px 75px;
+        border-top: 1px solid rgb(201, 201, 201);
+        cursor: pointer;
+        transition: all 0.2s;
+        &:last-of-type {
+            border-bottom: 1px solid rgb(201, 201, 201);
+        }
+        h2 {
+            font-size: 60px;
+            margin: 0px;
+            font-weight: 400;
+            transition: all 0.4s;
+            //font-family: 'SFProDisplayMedium', sans-serif;
+        }
+        p {
+            transition: all 0.4s;
+            font-family: 'SFProDisplayLight', sans-serif;
+        }
+        &:hover {
+            opacity: 0.5;
+            h2 {
+                transform: translateX(-10px);
+            }
+            p {
+                transform: translateX(10px);
+            }
+        }
+    }
+    .modalContainer {
+        height: 350px;
+        width: 400px;
+        height: 35vh;
+        width: 22.5vw;
+        position: absolute;
+        background-color: white;
+        overflow: hidden;
+        pointer-events: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        .modalSlider {
+            height: 100%;
+            width: 100%;
+            position: absolute;
+            transition: top 0.5s cubic-bezier(0.76, 0, 0.24, 1);
+            .modal {
+                height: 100%;
+                width: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                img {
+                    object-fit: cover;
+                    aspect-ratio: 1.5/1;
+                    height: auto;
+                }
+            }
+        }
+    }
+    .cursor-gallery,
+    .cursorLabel {
+        font-size: 14px;
+        font-weight: 300;
+        text-transform: uppercase;
+        background-color: #0022ff;
+        color: white;
+        width: 75px;
+        height: 75px;
+        border-radius: 50%;
+        position: absolute;
+        z-index: 2;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        pointer-events: none;
+    }
+    .cursorLabel {
+        background-color: transparent;
+    }
+}
