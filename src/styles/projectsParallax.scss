@@ -1,0 +1,107 @@
+.zoom-parallax-container {
+    margin: 0;
+    height: 300vh;
+    position: relative;
+    background-color: rgba(0, 0, 0, 1);
+    backdrop-filter: blur(10px);
+    .sticky-div {
+        position: sticky;
+        top: 0;
+        height: 100vh;
+        overflow: hidden;
+        .wrapper {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            .img-container {
+                width: 25vw;
+                height: 25vh;
+                position: relative;
+                .name-wrapper {
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    mix-blend-mode: difference;
+                    .brand-name {
+                        font-size: 3rem;
+                        font-weight: 600;
+                        color: #fff;
+                        transform-origin: center;
+                        /*
+                        background-image: linear-gradient(90deg, #0022ff, red);
+                        background-repeat: no-repeat;
+                        -webkit-background-clip: text;
+                        -webkit-text-fill-color: transparent;
+                        background-clip: text;*/
+                    }
+                }
+                img {
+                    height: 100%;
+                    width: 100%;
+                    object-fit: cover;
+                    object-fit: contain;
+                }
+            }
+            &:nth-of-type(2) {
+                .img-container {
+                    top: -32.5vh;
+                    left: 3.75vw;
+                    width: 32.5vw;
+                    height: 30vh;
+                }
+            }
+            &:nth-of-type(3) {
+                .img-container {
+                    top: -15vh;
+                    left: -25vw;
+                    width: 20vw;
+                    height: 55vh;
+                }
+            }
+            &:nth-of-type(4) {
+                .img-container {
+                    left: 27.5vw;
+                    width: 25vw;
+                    height: 25vh;
+                }
+            }
+            &:nth-of-type(5) {
+                .img-container {
+                    top: 30vh;
+                    left: 5vw;
+                    width: 20vw;
+                    height: 27.5vh;
+                }
+            }
+            &:nth-of-type(6) {
+                .img-container {
+                    top: 30vh;
+                    left: -22.5vw;
+                    width: 30vw;
+                    height: 27.5vh;
+                }
+            }
+            &:nth-of-type(7) {
+                .img-container {
+                    top: 27.5vh;
+                    left: 27.5vw;
+                    width: 17.5vw;
+                    height: 22.5vh;
+                }
+            }
+            &:nth-of-type(8) {
+                .img-container {
+                    top: -32.5vh;
+                    left: 30vw;
+                    width: 15vw;
+                    height: 30vh;
+                }
+            }
+        }
+    }
+}

@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import gsap from 'gsap';
 
 function ProjectsModal({ modal, projects }) {
-    const { active, index } = modal;
+    const { active, index, currentElement } = modal;
 
     const modalContainer = useRef(null);
     const cursor = useRef(null);
@@ -64,8 +64,13 @@ function ProjectsModal({ modal, projects }) {
             scale: 0,
             x: '-50%',
             y: '-50%',
-            transition: { duration: 0.4, ease: [0.32, 0, 0.67, 0] },
+            transition: { duration: 0.3, ease: [0.32, 0, 0.67, 0] },
         },
+    };
+
+    const openInNewTab = (url) => {
+        const newWindow = window.open(url, '_blank', 'noopener,noreferrer');
+        if (newWindow) newWindow.opener = null;
     };
 
     return (
@@ -81,18 +86,24 @@ function ProjectsModal({ modal, projects }) {
                     style={{ top: index * -100 + '%' }}
                     className='modalSlider'
                 >
-                    {projects.map(({ color, src }, index) => {
+                    {projects.map(({ color, src, url, id }, index) => {
                         return (
                             <div
                                 className='modal'
-                                style={{ backgroundColor: color }}
+                                style={{ backgroundImage: color }}
                                 key={`modal_${index}`}
                             >
                                 <img
                                     src={`/${src}`}
-                                    width={300}
+                                    width={325}
                                     height={0}
-                                    alt='imagxe'
+                                    loading='lazy'
+                                    alt='project thumbnail'
+                                    className={
+                                        id === currentElement
+                                            ? 'active'
+                                            : 'disabled'
+                                    }
                                 />
                             </div>
                         );

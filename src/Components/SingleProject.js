@@ -1,18 +1,22 @@
 import React from 'react';
 
 function SingleProject({ project, index, setModal }) {
-    const { name } = project;
+    const { name, icon, id } = project;
+
     return (
         <div
             onMouseEnter={() => {
-                setModal({ active: true, index });
+                setModal({ active: true, index, currentElement: id });
             }}
             onMouseLeave={() => {
-                setModal({ active: false, index });
+                setModal({ active: false, index, test: '' });
             }}
             className='project'
         >
-            <h2>{name}</h2>
+            <div className='name-wrapper'>
+                <span>{icon}</span>
+                <h3>{name}</h3>
+            </div>
 
             <p>Design & Development</p>
         </div>

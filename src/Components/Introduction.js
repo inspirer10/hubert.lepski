@@ -5,12 +5,13 @@ import {
     useMotionTemplate,
     useMotionValue,
 } from 'framer-motion';
+import { BsMouse3, BsMouse3Fill } from 'react-icons/bs';
 
 const COLORS = ['#13FFAA', '#1E67C6', '#CE84CF', '#DD335C'];
 
 function Introduction() {
     const color = useMotionValue(COLORS[0]);
-    const backgroundImage = useMotionTemplate`radial-gradient(125% 125% at 50% 0%, #020617 50%, ${color})`;
+    const backgroundImage = useMotionTemplate`radial-gradient(125% 150% at 25% 0%, #020617 50%, ${color})`;
 
     useEffect(() => {
         animate(color, COLORS, {
@@ -60,12 +61,26 @@ function Introduction() {
         //Add the stars
         stars();
     }, []);
+
     return (
         <motion.section
             style={{ backgroundImage }}
             className='introduction--section'
         >
-            <h1>INTRODUCTION</h1>
+            <div className='introduction-wrapper'>
+                <h2>
+                    Hey, <br /> I’m Hubert
+                </h2>
+
+                <p className='introduction__description'>
+                    an open minded, creative junior frontend developer from
+                    Poland
+                </p>
+            </div>
+
+            <div className='scroll-Suggestion'>
+                <BsMouse3 className='icon' />
+            </div>
 
             <canvas class='stars'></canvas>
         </motion.section>

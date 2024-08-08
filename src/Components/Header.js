@@ -1,14 +1,22 @@
 import React from 'react';
 
-import { FaArrowRightLong } from 'react-icons/fa6';
 import { MdOutlineDownloading } from 'react-icons/md';
 function Header() {
     return (
         <header>
             <nav>
                 <div className='person'>
-                    <img src='icon.png' alt='person thumbnial' />
-                    <p>Hubert Łepski</p>
+                    <div
+                        className='image'
+                        style={{ backgroundImage: `url('/Avatar.jpg')` }}
+                    >
+                        <div className='dot' />
+                    </div>
+
+                    <div className='image_text'>
+                        <p>Hubert Łepski</p>
+                        <p className='availability'>Available for work</p>
+                    </div>
                 </div>
 
                 <ul className='nav-links'>
