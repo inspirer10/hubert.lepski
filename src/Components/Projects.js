@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import SingleProject from './SingleProject';
 import ProjectsModal from './ProjectsModal';
-import ProjectsIntroductionParallax from './ProjectsIntroductionParallax';
+//import ProjectsIntroductionParallax from './ProjectsIntroductionParallax';
 
 function Projects() {
-    //projekty
+    //projekty tablia obiektów
     const projectsData = [
         {
             name: 'MUSTHAVE Webstore',
@@ -37,7 +37,7 @@ function Projects() {
             name: 'Astra NFT',
             icon: '💸',
             color: 'linear-gradient(to right top, #9f4fec, #7f43cc, #6138ac, #452b8d, #2c1f6e, #221a60, #181453, #0e0f46, #0e0f46, #0e0f46, #0e0f46, #0e0f46)',
-            src: 'astraNFTScroll.jpg',
+            src: 'astraNFTScroll.png',
             url: 'https://astra-nft-sigma.vercel.app/',
             id: 11,
         },
@@ -107,10 +107,10 @@ function Projects() {
 
         {
             name: 'Astra Crypto',
-            icon: '😀',
+            icon: '📈',
             color: 'linear-gradient(to right top, #000, #0f0f0f)',
-            src: '',
-            url: 'https://',
+            src: 'astraCrypto-scroll.png',
+            url: 'https://astra-crypto.vercel.app/',
             id: 12,
         },
 

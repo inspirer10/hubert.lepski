@@ -5,7 +5,7 @@ import {
     useMotionTemplate,
     useMotionValue,
 } from 'framer-motion';
-import { BsMouse3, BsMouse3Fill } from 'react-icons/bs';
+import { BsMouse3 } from 'react-icons/bs';
 
 const COLORS = ['#13FFAA', '#1E67C6', '#CE84CF', '#DD335C'];
 

@@ -28,19 +28,16 @@
                     transform: translate(-50%, -50%);
                     mix-blend-mode: difference;
                     .brand-name {
+                        font-family: 'SF Pro Display', sans-serif;
                         font-size: 3rem;
                         font-weight: 600;
+                        letter-spacing: 5px;
                         color: #fff;
                         transform-origin: center;
-                        /*
-                        background-image: linear-gradient(90deg, #0022ff, red);
-                        background-repeat: no-repeat;
-                        -webkit-background-clip: text;
-                        -webkit-text-fill-color: transparent;
-                        background-clip: text;*/
                     }
                 }
                 img {
+                    z-index: -1;
                     height: 100%;
                     width: 100%;
                     object-fit: cover;

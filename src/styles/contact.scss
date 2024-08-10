@@ -2,9 +2,36 @@
     height: 100vh;
     background-color: rgb(255, 255, 255);
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: space-evenly;
+    flex-direction: column;
     h2 {
+        font-family: 'SF Pro Display';
         font-size: 10rem;
+        font-weight: 600;
+        letter-spacing: 0px;
+    }
+    .links-wrapper {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 70%;
+        margin: 0 auto;
+        .link {
+            font-family: 'SF Pro Display';
+            font-size: 3rem;
+            font-weight: 300;
+            letter-spacing: 0.75px;
+            padding: 0.75rem;
+            .icon {
+                transition: .1s ease-out;
+            }
+            &:hover {
+                .icon {
+                    transition: .15s ease-in;
+                    transform: translate(7.5px, -7.5px);
+                }
+            }
+        }
     }
 }

@@ -23,7 +23,8 @@ header {
                 height: 5.5vh;
                 width: 5.5vh;
                 aspect-ratio: 1/1;
-                border: 1px solid #fff;
+                border: 1px solid rgb(32, 150, 0);
+                border-color: rgb(100, 250, 0);
                 border-radius: 50%;
                 position: relative;
                 .dot {
@@ -55,16 +56,16 @@ header {
                 justify-content: space-between;
                 p {
                     font-family: "Albert Sans", sans-serif;
-                    font-family: 'SFProDisplayRegular';
+                    font-family: 'SF Pro Display', sans-serif;
                     font-size: 21px;
                     font-weight: 400;
-                    letter-spacing: 0.75px;
+                    letter-spacing: 1px;
                 }
                 .availability {
-                    font-family: 'SFProDisplayThin';
+                    font-family: 'SF Pro Display', sans-serif;
                     font-size: 13px;
                     font-weight: 200;
-                    letter-spacing: 0.8px;
+                    letter-spacing: 1px;
                     color: rgb(170, 170, 170);
                     mix-blend-mode: difference;
                     user-select: none;
@@ -77,18 +78,18 @@ header {
             justify-content: space-between;
             align-items: center;
             li {
-                font-family: 'SFProDisplayLight', sans-serif;
-                letter-spacing: 0.75px;
+                font-family: 'SF Pro Display', sans-serif;
                 font-size: 18px;
-                font-weight: 400;
+                font-weight: 300;
+                letter-spacing: 1px;
+                text-transform: uppercase;
+                color: rgb(210, 210, 210);
                 margin: 0 1.5rem;
                 padding: 0.5rem 0.25rem;
                 position: relative;
-                text-transform: uppercase;
-                cursor: pointer;
                 user-select: none;
+                cursor: pointer;
                 transition: transform .2s ease-in-out;
-                color: rgb(210, 210, 210);
                 &:hover {
                     color: #fff;
                     &::after {
@@ -132,7 +133,7 @@ header {
                     transition: all .3s ease-out;
                 }
                 .primary {
-                    font-family: 'SFProDisplayMedium', sans-serif;
+                    font-family: 'SF Pro Display', sans-serif;
                     letter-spacing: 0.5px;
                     font-weight: 500;
                     margin: 0;

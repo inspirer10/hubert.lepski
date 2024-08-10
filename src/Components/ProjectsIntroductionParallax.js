@@ -1,4 +1,5 @@
 import { useScroll, useTransform, motion } from 'framer-motion';
+import Image from 'next/image';
 import React, { useRef } from 'react';
 
 function ProjectsIntroductionParallax() {
@@ -78,12 +79,7 @@ function ProjectsIntroductionParallax() {
                                     </motion.div>
                                 </div>
                             ) : null}
-                            <img
-                                src={src}
-                                alt='project thumbnail'
-                                placeholder='blur'
-                                fill
-                            />
+                            <Image src={src} alt='project thumbnail' fill />
                         </div>
                     </motion.div>
                 ))}

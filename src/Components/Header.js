@@ -1,6 +1,7 @@
 import React from 'react';
+import { MdOutlineDownloading as DownloadIcon } from 'react-icons/md';
+import { HiOutlineDocumentArrowDown } from 'react-icons/hi2';
 
-import { MdOutlineDownloading } from 'react-icons/md';
 function Header() {
     return (
         <header>
@@ -27,7 +28,7 @@ function Header() {
                     <div className='header_button'>
                         <p className='primary'>GET CV</p>
                         <div className='secondary'>
-                            <MdOutlineDownloading />
+                            <DownloadIcon />
                         </div>
                         <div className='rounded' />
                     </div>

@@ -63,7 +63,7 @@
             }
             h3 {
                 margin: 0px;
-                font-family: 'SFProDisplayRegular', sans-serif;
+                font-family: 'SF Pro Display', sans-serif;
                 font-size: 60px;
                 font-weight: 400;
                 letter-spacing: 0.75px;
@@ -136,10 +136,12 @@
     }
     .cursor-gallery,
     .cursorLabel {
-        font-size: 14px;
+        font-family: 'SF Pro Display';
+        font-size: 15px;
         font-weight: 300;
+        letter-spacing: 1.75px;
         text-transform: uppercase;
-        background-color: #0022ff;
+        background-color: rgb(0, 0, 140);
         color: white;
         width: 75px;
         height: 75px;

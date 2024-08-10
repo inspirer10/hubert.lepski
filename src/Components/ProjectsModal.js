@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import gsap from 'gsap';
+import Image from 'next/image';
 
 function ProjectsModal({ modal, projects }) {
     const { active, index, currentElement } = modal;
@@ -86,18 +87,17 @@ function ProjectsModal({ modal, projects }) {
                     style={{ top: index * -100 + '%' }}
                     className='modalSlider'
                 >
-                    {projects.map(({ color, src, url, id }, index) => {
+                    {projects.map(({ color, src, id }, index) => {
                         return (
                             <div
                                 className='modal'
                                 style={{ backgroundImage: color }}
                                 key={`modal_${index}`}
                             >
-                                <img
+                                <Image
                                     src={`/${src}`}
                                     width={325}
-                                    height={0}
-                                    loading='lazy'
+                                    height={200}
                                     alt='project thumbnail'
                                     className={
                                         id === currentElement

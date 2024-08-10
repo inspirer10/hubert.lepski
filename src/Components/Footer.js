@@ -3,13 +3,18 @@ import { motion } from 'framer-motion';
 import { FaBehance, FaLinkedin, FaGithub } from 'react-icons/fa';
 import { IoIosMail } from 'react-icons/io';
 import { CgPhone } from 'react-icons/cg';
+import Link from 'next/link';
+
+import { MdArrowOutward as Arrow } from 'react-icons/md';
 
 function Footer() {
     return (
         <footer>
             <div className='footer_content-wrapper'>
                 <div className='footer_content'>
-                    <div className='icons'>1</div>
+                    <h3 className='heading'>
+                        Feel free to contact me. Let's work together!
+                    </h3>
                     <motion.svg
                         id='footer_svg'
                         strokeDasharray='2061'
@@ -38,13 +43,95 @@ function Footer() {
                             stroke-linecap='round'
                         />
                     </motion.svg>
-                    <div className='footer_icons'>
-                        <FaBehance className='icon' />
-                        <FaLinkedin className='icon' />
-                        <FaGithub className='icon' />
-                        <IoIosMail className='icon' />
-                        <CgPhone className='icon' />
+
+                    <div className='footer-links'>
+                        <div className='links-wrapper'>
+                            <Link
+                                href='https://www.behance.net/inspirer10'
+                                target='_blank'
+                                rel='noopener noreferrer'
+                                className='footer-link'
+                            >
+                                Behance <Arrow className='arrow-icon' />
+                            </Link>
+                            <Link
+                                href='https://www.behance.net/LINKEDIN'
+                                target='_blank'
+                                rel='noopener noreferrer'
+                                className='footer-link'
+                            >
+                                Linkedin <Arrow className='arrow-icon' />
+                            </Link>
+                        </div>
+                        <div className='links-wrapper'>
+                            <Link
+                                href='https://github.com/inspirer10'
+                                target='_blank'
+                                rel='noopener noreferrer'
+                                className='footer-link'
+                            >
+                                GitHub <Arrow className='arrow-icon' />
+                            </Link>
+                            <Link
+                                href='https://www.behance.net/LINKEDIN'
+                                target='_blank'
+                                rel='noopener noreferrer'
+                                className='footer-link'
+                            >
+                                Linkedin <Arrow className='arrow-icon' />
+                            </Link>
+                        </div>
                     </div>
+
+                    <summary>
+                        <p>HŁ 2024</p>
+                        <Link
+                            className='footer-email-link'
+                            href='mailto:hubertlepsky@gmail.com'
+                            target='_blank'
+                            rel='noopener noreferrer'
+                        >
+                            hubertlepsky@gmail.com
+                        </Link>
+                        {/*
+                        <div className='footer_icons'>
+                            <Link
+                                href='https://www.behance.net/inspirer10'
+                                target='_blank'
+                                rel='noopener noreferrer'
+                            >
+                                <FaBehance className='icon' />
+                            </Link>
+                            <Link
+                                href='https://www.behance.net/LINKEDIN'
+                                target='_blank'
+                                rel='noopener noreferrer'
+                            >
+                                <FaLinkedin className='icon' />
+                            </Link>
+                            <Link
+                                href='https://github.com/inspirer10'
+                                target='_blank'
+                                rel='noopener noreferrer'
+                            >
+                                <FaGithub className='icon' />
+                            </Link>
+                            <Link
+                                href='mailto:hubertlepsky@gmail.com'
+                                target='_blank'
+                                rel='noopener noreferrer'
+                            >
+                                <IoIosMail className='icon' />
+                            </Link>
+                            <Link
+                                href='tel:+48697819866'
+                                target='_blank'
+                                rel='noopener noreferrer'
+                            >
+                                <CgPhone className='icon' />
+                            </Link>
+                        </div> */}
+                    </summary>
                 </div>
             </div>
         </footer>
