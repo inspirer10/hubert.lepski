@@ -1,35 +1,71 @@
 .contact_section {
-    height: 100vh;
+    padding: 15vh 0 30vh;
     background-color: rgb(255, 255, 255);
     display: flex;
     align-items: center;
     justify-content: space-evenly;
     flex-direction: column;
-    h2 {
-        font-family: 'SF Pro Display';
-        font-size: 10rem;
-        font-weight: 600;
-        letter-spacing: 0px;
+    position: relative;
+    z-index: 100;
+    article {
+        text-align: center;
+        p {
+            //font-family: 'SF Pro Display';
+            line-height: calc(5rem * 1.2);
+            font-size: 5rem;
+            font-weight: 400;
+            letter-spacing: 0px;
+            color: rgb(150, 150, 150);
+            text-align: left;
+            &:first-of-type {
+                transform: translateX(-10rem);
+            }
+            &:nth-of-type(2) {
+                text-align: right;
+                transform: translateX(5rem);
+            }
+        }
+        h2 {
+            font-size: 10rem;
+            line-height: calc(10rem * 1.1);
+            font-weight: 600;
+        }
     }
     .links-wrapper {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        width: 70%;
-        margin: 0 auto;
+        width: 80%;
+        margin: 10vh auto 0;
         .link {
             font-family: 'SF Pro Display';
-            font-size: 3rem;
+            font-size: 3.5rem;
             font-weight: 300;
-            letter-spacing: 0.75px;
+            letter-spacing: 1.25px;
             padding: 0.75rem;
-            .icon {
-                transition: .1s ease-out;
+            position: relative;
+            .background-icon {
+                font-size: 15rem;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                pointer-events: none;
+                opacity: 0.075;
+                transition: .175s ease-in-out;
+            }
+            .arrow-icon {
+                transition: .125s ease-out;
+                color: rgb(150, 150, 150);
             }
             &:hover {
-                .icon {
+                .arrow-icon {
+                    color: #000;
                     transition: .15s ease-in;
-                    transform: translate(7.5px, -7.5px);
+                    transform: translate(8.5px, -8.5px);
+                }
+                .background-icon {
+                    opacity: 0.15;
                 }
             }
         }

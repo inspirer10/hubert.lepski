@@ -73,7 +73,7 @@ function Introduction() {
                 </h2>
 
                 <p className='introduction__description'>
-                    an open minded, creative junior frontend developer from
+                    — an open minded, creative junior frontend developer from
                     Poland
                 </p>
             </div>

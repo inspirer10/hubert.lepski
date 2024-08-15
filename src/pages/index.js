@@ -4,7 +4,7 @@ import Footer from '@/Components/Footer';
 import Header from '@/Components/Header';
 import Introduction from '@/Components/Introduction';
 import Projects from '@/Components/Projects';
-import ProjectsIntroductionParallax from '@/Components/ProjectsIntroductionParallax';
+import AboutParallax from '@/Components/AboutParallax';
 import Lenis from 'lenis';
 import Head from 'next/head';
 import { useEffect } from 'react';
@@ -38,8 +38,8 @@ export default function Home() {
             <>
                 <Header />
                 <Introduction />
+                <AboutParallax />
                 <About />
-                <ProjectsIntroductionParallax />
                 <Projects />
                 <Contact />
                 <Footer />

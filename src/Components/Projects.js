@@ -186,6 +186,7 @@ function Projects() {
     return (
         <section id='projects'>
             <article className='projects-gallery'>
+                <p className='fixed_projects'>projects</p>
                 <div className='projects-gallery-container'>
                     {projectsData.map((project, i) => (
                         <a

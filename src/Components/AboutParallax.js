@@ -2,7 +2,7 @@ import { useScroll, useTransform, motion } from 'framer-motion';
 import Image from 'next/image';
 import React, { useRef } from 'react';
 
-function ProjectsIntroductionParallax() {
+function AboutParallax() {
     const zoomParallaxContainer = useRef(null);
     const { scrollYProgress } = useScroll({
         target: zoomParallaxContainer,
@@ -11,8 +11,8 @@ function ProjectsIntroductionParallax() {
 
     const scaleName = useTransform(
         scrollYProgress,
-        [0, 0.4, 0.9, 1],
-        [0, 0.6, 0.8, 1.25]
+        [0, 0.2, 0.5, 1],
+        [0.6, 0.7, 0.9, 1.25]
     );
 
     const scale4 = useTransform(scrollYProgress, [0, 1], [1, 4]);
@@ -22,37 +22,45 @@ function ProjectsIntroductionParallax() {
 
     const pictures = [
         {
-            src: `/img3.jpg`,
+            src: `/aboutMe/rocket.gif`, //center
             scale: scale4,
             additionalText: true,
+            fit: 'contain',
         },
         {
-            src: `/img3.jpg`,
+            src: `/aboutMe/logo.jpg`, //góra
             scale: scale5,
+            fit: 'cover',
         },
         {
-            src: `/img3.jpg`,
+            src: `/aboutMe/pizza.jpg`, //lewy górny
             scale: scale6,
+            fit: 'cover',
         },
         {
-            src: `/img3.jpg`,
+            src: `/avatar.jpg`, //prawy
             scale: scale5,
+            fit: 'contain',
         },
         {
-            src: `/img3.jpg`,
+            src: `/aboutMe/wroclaw.jpg`, // dół
             scale: scale6,
+            fit: 'contain',
         },
         {
-            src: `/img3.jpg`,
+            src: `/aboutMe/uncharted.jpg`, //lewy dolny
             scale: scale8,
+            fit: 'cover',
         },
         {
-            src: `/img3.jpg`,
+            src: `/aboutMe/venezia.png`, //prawy dolny
             scale: scale8,
+            fit: 'contain',
         },
         {
-            src: `/img3.jpg`,
+            src: `/aboutMe/ASP.jpg`, //prawy górny
             scale: scale5,
+            fit: 'cover',
         },
     ];
 
@@ -62,7 +70,7 @@ function ProjectsIntroductionParallax() {
             className='zoom-parallax-container'
         >
             <div className='sticky-div'>
-                {pictures.map(({ src, scale, additionalText }, index) => (
+                {pictures.map(({ src, scale, additionalText, fit }, index) => (
                     <motion.div
                         style={{ scale: scale }}
                         className='wrapper'
@@ -75,11 +83,16 @@ function ProjectsIntroductionParallax() {
                                         style={{ scale: scaleName }}
                                         className='brand-name'
                                     >
-                                        PROJECTS
+                                        ABOUT ME
                                     </motion.div>
                                 </div>
                             ) : null}
-                            <Image src={src} alt='project thumbnail' fill />
+                            <Image
+                                src={src}
+                                style={{ objectFit: fit }}
+                                alt='project thumbnail'
+                                fill
+                            />
                         </div>
                     </motion.div>
                 ))}
@@ -88,4 +101,4 @@ function ProjectsIntroductionParallax() {
     );
 }
 
-export default ProjectsIntroductionParallax;
+export default AboutParallax;

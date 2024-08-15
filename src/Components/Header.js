@@ -21,7 +21,7 @@ function Header() {
                 </div>
 
                 <ul className='nav-links'>
-                    <li>Technologies</li>
+                    <li>About</li>
                     <li>Projects</li>
                     <li>Contact</li>
 

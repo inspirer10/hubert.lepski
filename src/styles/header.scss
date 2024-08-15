@@ -25,6 +25,7 @@ header {
                 aspect-ratio: 1/1;
                 border: 1px solid rgb(32, 150, 0);
                 border-color: rgb(100, 250, 0);
+                border-color: #fff;
                 border-radius: 50%;
                 position: relative;
                 .dot {
@@ -174,6 +175,6 @@ header {
     80%,
     100% {
         opacity: 0;
-        transform: scale(2.75);
+        transform: scale(3.2);
     }
 }
