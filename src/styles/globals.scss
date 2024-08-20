@@ -48,6 +48,10 @@
     font-family: "Inter", sans-serif;
     font-family: "Albert Sans", sans-serif;
     scrollbar-width: thin;
+    &::selection {
+        color: #000;
+        background-color: #fff;
+    }
 }
 
 html,
@@ -56,8 +60,8 @@ body {
 }
 
 body {
-    background-color: #fff;
-    color: #000;
+    background-color: #000;
+    color: #fff;
     line-height: 1.2222222222;
 }
 

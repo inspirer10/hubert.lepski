@@ -1,10 +1,14 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
+import { motion, useTransform, useScroll } from 'framer-motion';
+import Image from 'next/image';
 import SingleProject from './SingleProject';
 import ProjectsModal from './ProjectsModal';
+
 //import ProjectsIntroductionParallax from './ProjectsIntroductionParallax';
 
 function Projects() {
-    //projekty tablia obiektów
+    const container = useRef(null);
+    //projekty - tablia obiektów
     const projectsData = [
         {
             name: 'MUSTHAVE Webstore',
@@ -70,12 +74,12 @@ function Projects() {
         },
 
         {
-            name: 'Weather App',
-            icon: '🌤️',
-            color: 'linear-gradient(to right, #a5d0ff, #007bff)',
-            src: 'img4.jpg',
-            url: 'https://inspirer10.github.io/',
-            id: 7,
+            name: 'Astra Crypto',
+            icon: '📈',
+            color: 'linear-gradient(to right top, #000, #0f0f0f)',
+            src: 'astraCrypto-scroll.png',
+            url: 'https://astra-crypto.vercel.app/',
+            id: 12,
         },
 
         {
@@ -85,6 +89,33 @@ function Projects() {
             src: 'clinifyScroll.jpg',
             url: 'https://clinify-inspirer10.vercel.app/',
             id: 8,
+        },
+
+        {
+            name: 'Cars Rental',
+            icon: '🚗',
+            color: 'linear-gradient(to right top, #ffffff, #e6e2ff, #cbc6ff, #adabff, #8a91ff, #7886ff, #637bff, #4870ff, #4870ff, #4870ff, #4870ff, #4870ff)',
+            src: 'cars-rentalScroll.jpg',
+            url: 'https://cars-rental-inspirer10.vercel.app/',
+            id: 15,
+        },
+
+        {
+            name: 'Volcanic Wonder',
+            icon: '🌋',
+            color: 'linear-gradient(to right top, #000000, #371c1f, #6a312c, #9b4d30, #c47229, #c47229, #c47229, #c47229, #9b4d30, #6a312c, #371c1f, #000000)',
+            src: 'volcanic-wonderScroll.jpg',
+            url: 'https://volcanic-wonder.vercel.app/',
+            id: 14,
+        },
+
+        {
+            name: 'Weather App',
+            icon: '🌤️',
+            color: 'linear-gradient(to right, #a5d0ff, #007bff)',
+            src: 'img4.jpg',
+            url: 'https://inspirer10.github.io/',
+            id: 7,
         },
 
         {
@@ -103,33 +134,6 @@ function Projects() {
             src: 'img4.jpg',
             url: 'https://inspirer10.github.io/',
             id: 10,
-        },
-
-        {
-            name: 'Astra Crypto',
-            icon: '📈',
-            color: 'linear-gradient(to right top, #000, #0f0f0f)',
-            src: 'astraCrypto-scroll.png',
-            url: 'https://astra-crypto.vercel.app/',
-            id: 12,
-        },
-
-        {
-            name: 'Volcanic Wonder',
-            icon: '🌋',
-            color: 'linear-gradient(to right top, #000000, #371c1f, #6a312c, #9b4d30, #c47229, #c47229, #c47229, #c47229, #9b4d30, #6a312c, #371c1f, #000000)',
-            src: 'volcanic-wonderScroll.jpg',
-            url: 'https://volcanic-wonder.vercel.app/',
-            id: 14,
-        },
-
-        {
-            name: 'Cars Rental',
-            icon: '🚗',
-            color: 'linear-gradient(to right top, #ffffff, #e6e2ff, #cbc6ff, #adabff, #8a91ff, #7886ff, #637bff, #4870ff, #4870ff, #4870ff, #4870ff, #4870ff)',
-            src: 'cars-rentalScroll.jpg',
-            url: 'https://cars-rental-inspirer10.vercel.app/',
-            id: 15,
         },
 
         {
@@ -183,30 +187,129 @@ function Projects() {
         currentElement: '',
     });
 
+    const slider1 = [
+        {
+            color: '#e3e5e7',
+            src: 'webstoreScroll.jpg',
+        },
+
+        {
+            color: '#d6d7dc',
+            src: 'webstoreScroll.jpg',
+        },
+
+        {
+            color: '#e3e3e3',
+            src: 'webstoreScroll.jpg',
+        },
+
+        {
+            color: '#21242b',
+            src: 'webstoreScroll.jpg',
+        },
+    ];
+
+    const slider2 = [
+        {
+            color: '#d4e3ec',
+            src: 'webstoreScroll.jpg',
+        },
+
+        {
+            color: '#e5e0e1',
+            src: 'webstoreScroll.jpg',
+        },
+
+        {
+            color: '#d7d4cf',
+            src: 'webstoreScroll.jpg',
+        },
+
+        {
+            color: '#e1dad6',
+            src: 'webstoreScroll.jpg',
+        },
+    ];
+
+    const { scrollYProgress } = useScroll({
+        target: container,
+        offset: ['start end', 'end start'],
+    });
+
+    const x1 = useTransform(scrollYProgress, [0, 1], [0, 250]);
+    const x2 = useTransform(scrollYProgress, [0, 1], [0, -250]);
+    const height = useTransform(scrollYProgress, [0, 0.9], [50, 0]);
+
     return (
-        <section id='projects'>
-            <article className='projects-gallery'>
-                <p className='fixed_projects'>projects</p>
-                <div className='projects-gallery-container'>
-                    {projectsData.map((project, i) => (
-                        <a
-                            target='_blank'
-                            rel='noopener noreferrer'
-                            href={project.url}
-                            className='project-link'
-                        >
-                            <SingleProject
-                                setModal={setModal}
-                                index={i}
-                                project={project}
-                                key={i}
-                            />
-                        </a>
-                    ))}
-                </div>
-                <ProjectsModal modal={modal} projects={projectsData} />
+        <>
+            <article ref={container} className='slidingImages'>
+                <motion.div style={{ x: x1 }} className='slider'>
+                    {slider1.map((project, index) => {
+                        return (
+                            <div
+                                className='project'
+                                style={{ backgroundColor: project.color }}
+                            >
+                                <div key={index} className='imageContainer'>
+                                    <Image
+                                        src={`/${project.src}`}
+                                        alt='project thumbnail'
+                                        fill
+                                    />
+                                </div>
+                            </div>
+                        );
+                    })}
+                </motion.div>
+
+                <motion.div style={{ x: x2 }} className='slider'>
+                    {slider2.map((project, index) => {
+                        return (
+                            <div
+                                className='project'
+                                style={{ backgroundColor: project.color }}
+                            >
+                                <div key={index} className='imageContainer'>
+                                    <Image
+                                        src={`/${project.src}`}
+                                        alt='project thumbnail'
+                                        fill
+                                    />
+                                </div>
+                            </div>
+                        );
+                    })}
+                </motion.div>
+
+                <motion.div style={{ height }} className={'circleContainer'}>
+                    <div className={'circle'}></div>
+                </motion.div>
             </article>
-        </section>
+
+            <section id='projects'>
+                <article className='projects-gallery'>
+                    <p className='fixed_projects'>projects</p>
+                    <div className='projects-gallery-container'>
+                        {projectsData.map((project, i) => (
+                            <a
+                                target='_blank'
+                                rel='noopener noreferrer'
+                                href={project.url}
+                                className='project-link'
+                            >
+                                <SingleProject
+                                    setModal={setModal}
+                                    index={i}
+                                    project={project}
+                                    key={i}
+                                />
+                            </a>
+                        ))}
+                    </div>
+                    <ProjectsModal modal={modal} projects={projectsData} />
+                </article>
+            </section>
+        </>
     );
 }
 

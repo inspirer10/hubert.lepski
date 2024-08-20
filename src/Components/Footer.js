@@ -109,7 +109,7 @@ function Footer() {
                             <span className='colon'>:</span>
                             {minutes}
                         </p>
-                        <p>HŁ 2024</p>
+
                         <Link
                             className='footer-email-link'
                             href='mailto:hubertlepsky@gmail.com'

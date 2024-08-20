@@ -1,11 +1,47 @@
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { MdOutlineDownloading as DownloadIcon } from 'react-icons/md';
-import { HiOutlineDocumentArrowDown } from 'react-icons/hi2';
+import Link from 'next/link';
 
 function Header() {
+    const [showNavbar, setShowNavbar] = useState(true);
+    let lastScrollTop = useRef(0);
+    const navbar = useRef(null);
+
+    const handleHideNavbar = () => {
+        setShowNavbar(false);
+    };
+
+    const handleScroll = () => {
+        if (window.innerWidth > 1050) {
+            const scrollTop =
+                window.scrollY || document.documentElement.scrollTop;
+            if (scrollTop > lastScrollTop) {
+                setShowNavbar(false); //Scroll w dół - ukryj navbar
+            } else {
+                setShowNavbar(true); //Scroll w górę - pokaż navbar
+            }
+            lastScrollTop = scrollTop;
+        }
+    };
+
+    useEffect(() => {
+        window.addEventListener('scroll', handleScroll);
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, []);
+
+    {
+        /*
+        <div data-scroll data-scroll-speed={1}>
+            <h3>testttt</h3>
+        </div>
+    */
+    }
     return (
         <header>
-            <nav>
+            <nav
+                className={`${showNavbar ? 'navbar--show' : 'navbar--hide'}`}
+                ref={navbar}
+            >
                 <div className='person'>
                     <div
                         className='image'
@@ -21,9 +57,27 @@ function Header() {
                 </div>
 
                 <ul className='nav-links'>
-                    <li>About</li>
-                    <li>Projects</li>
-                    <li>Contact</li>
+                    <Link
+                        className='link'
+                        onClick={handleHideNavbar}
+                        href='#about'
+                    >
+                        About
+                    </Link>
+                    <Link
+                        className='link'
+                        onClick={handleHideNavbar}
+                        href='#projects'
+                    >
+                        Projects
+                    </Link>
+                    <Link
+                        className='link'
+                        onClick={handleHideNavbar}
+                        href='#contact'
+                    >
+                        Contact
+                    </Link>
 
                     <div className='header_button'>
                         <p className='primary'>GET CV</p>

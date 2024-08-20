@@ -1,7 +1,8 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import {
     animate,
     motion,
+    useInView,
     useMotionTemplate,
     useMotionValue,
 } from 'framer-motion';
@@ -62,6 +63,39 @@ function Introduction() {
         stars();
     }, []);
 
+    const slideUp = {
+        initial: {
+            y: '100%',
+        },
+        open: (i) => ({
+            y: '0%',
+            transition: { duration: 1, delay: 0.035 * i },
+        }),
+        closed: {
+            y: '100%',
+            transition: { duration: 0.5 },
+        },
+    };
+
+    const opacity = {
+        initial: {
+            opacity: 0,
+        },
+        open: {
+            opacity: 1,
+            transition: { duration: 0.5 },
+        },
+        closed: {
+            opacity: 0,
+            transition: { duration: 0.5 },
+        },
+    };
+
+    const description = useRef(null);
+    const isInView = useInView(description);
+    const phrase =
+        ' — an ambitious, open minded, creative Junior Web Developer from Wrocław, Poland';
+
     return (
         <motion.section
             style={{ backgroundImage }}
@@ -72,10 +106,33 @@ function Introduction() {
                     Hey, <br /> I’m Hubert
                 </h2>
 
-                <p className='introduction__description'>
-                    — an open minded, creative junior frontend developer from
-                    Poland
-                </p>
+                <div className='description'>
+                    <div className='body'>
+                        <p ref={description}>
+                            {phrase.split(' ').map((word, index) => {
+                                return (
+                                    <span className='mask'>
+                                        <motion.span
+                                            variants={slideUp}
+                                            custom={index}
+                                            animate={
+                                                isInView ? 'open' : 'closed'
+                                            }
+                                            key={index}
+                                        >
+                                            {word}
+                                        </motion.span>
+                                    </span>
+                                );
+                            })}
+                        </p>
+                    </div>
+                </div>
+
+                {/* <p className='introduction__description'>
+                    — an ambitious, open minded, creative Junior Web Developer
+                    from Wrocław, Poland
+                </p> */}
             </div>
 
             <div className='scroll-Suggestion'>

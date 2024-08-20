@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import About from '@/Components/About';
 import Contact from '@/Components/Contact';
 import Footer from '@/Components/Footer';
@@ -5,12 +6,14 @@ import Header from '@/Components/Header';
 import Introduction from '@/Components/Introduction';
 import Projects from '@/Components/Projects';
 import AboutParallax from '@/Components/AboutParallax';
-import Lenis from 'lenis';
 import Head from 'next/head';
-import { useEffect } from 'react';
+
+import Lenis from 'lenis';
+import LocomotiveScroll from 'locomotive-scroll';
 
 export default function Home() {
-    useEffect(() => {
+    {
+        /*  useEffect(() => {
         const lenis = new Lenis();
 
         function raf(time) {
@@ -19,6 +22,16 @@ export default function Home() {
         }
 
         requestAnimationFrame(raf);
+    }, []); */
+    }
+
+    useEffect(() => {
+        (async () => {
+            const LocomotiveScroll = (await import('locomotive-scroll'))
+                .default;
+
+            const locomotiveScroll = new LocomotiveScroll();
+        })();
     }, []);
 
     return (
@@ -38,7 +51,25 @@ export default function Home() {
             <>
                 <Header />
                 <Introduction />
+                <article
+                    className='bufferBeforeParallax'
+                    style={{
+                        height: '12.5vh',
+                        zIndex: '2',
+                        position: 'relative',
+                        backgroundColor: '#000',
+                    }}
+                ></article>
                 <AboutParallax />
+                <article
+                    className='bufferAfterParallax'
+                    style={{
+                        height: '10vh',
+                        zIndex: '3',
+                        position: 'relative',
+                        backgroundColor: '#000',
+                    }}
+                ></article>
                 <About />
                 <Projects />
                 <Contact />

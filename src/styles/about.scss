@@ -1,11 +1,137 @@
 .aboutMe-section {
-    height: 100vh;
+    min-height: 110vh;
+    width: 100%;
+    position: relative;
+    z-index: 5;
     display: flex;
     align-items: center;
     justify-content: center;
-    h2 {
-        font-family: 'SF Pro Display';
-        font-size: 10rem;
-        font-weight: 600;
+    flex-direction: column;
+    background-color: #fff;
+    color: #000;
+    overflow: hidden;
+    * {
+        &::selection {
+            background-color: #000;
+            color: #fff;
+        }
+    }
+    .surface {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        img {
+            position: absolute;
+            object-fit: contain;
+        }
+        &:nth-of-type(1) {
+            //filter: brightness(0.7);
+            img {
+                &:nth-of-type(1) {
+                    left: 82.5%;
+                    top: 75%;
+                }
+                &:nth-of-type(2) {
+                    left: 2.5%;
+                    top: 70%;
+                }
+                &:nth-of-type(3) {
+                    left: 25%;
+                    top: 7.5%;
+                }
+            }
+        }
+        &:nth-of-type(2) {
+            //filter: brightness(0.6);
+            img {
+                &:nth-of-type(1) {
+                    left: 5%;
+                    top: 10%;
+                }
+                &:nth-of-type(2) {
+                    left: 80%;
+                    top: 5%;
+                }
+                &:nth-of-type(3) {
+                    left: 50%;
+                    top: 70%;
+                }
+            }
+        }
+        &:nth-of-type(3) {
+            //filter: brightness(0.5);
+            img {
+                &:nth-of-type(1) {
+                    left: 65%;
+                    top: 7.5%;
+                }
+                &:nth-of-type(2) {
+                    left: 33%;
+                    top: 75%;
+                }
+                &:nth-of-type(3) {
+                    left: 87.5%;
+                    top: 55%;
+                }
+                &:nth-of-type(4) {
+                    left: 85%;
+                    top: 20%;
+                }
+            }
+        }
+        &:nth-of-type(4) {
+            //filter: brightness(0.5);
+            img {
+                &:nth-of-type(1) {
+                    left: 67.5%;
+                    top: 77.5%;
+                }
+                &:nth-of-type(2) {
+                    left: 45%;
+                    top: 7.5%;
+                }
+                &:nth-of-type(3) {
+                    left: 17%;
+                    top: 78%;
+                }
+                &:nth-of-type(4) {
+                    left: 2.5%;
+                    top: 30%;
+                }
+            }
+        }
+    }
+    .text-container {
+        display: flex;
+        justify-content: center;
+        .text-content-wrapper {
+            display: flex;
+            justify-content: space-between;
+            width: 80%;
+            position: relative;
+            p {
+                font-family: 'Courier New', Courier, monospace;
+                font-family: 'SF Pro Display', sans-serif;
+                margin: 0px;
+                width: 40%;
+                &:nth-of-type(1) {
+                    font-size: 30px;
+                    line-height: 1.25;
+                    span {
+                        font-family: 'SF Pro Display', serif;
+                        font-family: 'Inter', serif;
+                        margin-right: 3px;
+                    }
+                    .mask {
+                        position: relative;
+                        overflow: hidden;
+                        display: inline-flex;
+                    }
+                }
+                &:nth-of-type(2) {
+                    font-size: 28px;
+                }
+            }
+        }
     }
 }

@@ -38,7 +38,8 @@ function AboutParallax() {
             fit: 'cover',
         },
         {
-            src: `/avatar.jpg`, //prawy
+            src: `/Avatar.jpg`, //prawy
+            src: `/aboutMe/starWars.jpg`, //prawy
             scale: scale5,
             fit: 'contain',
         },
