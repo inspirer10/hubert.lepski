@@ -5,11 +5,21 @@
     backdrop-filter: blur(10px);
     position: relative;
     z-index: 100;
+    //!canvas
     .sticky-div {
         position: sticky;
         top: 0;
         height: 100vh;
         overflow: hidden;
+        .stars {
+            position: absolute;
+            inset: 0;
+            z-index: -5;
+            background-image: url('/stars.png');
+            background-position: center;
+            width: 100%;
+            height: 100%;
+        }
         .wrapper {
             width: 100%;
             height: 100%;
@@ -56,16 +66,16 @@
             }
             &:nth-of-type(3) {
                 .img-container {
-                    top: -15vh;
-                    left: -25vw;
-                    width: 20vw;
+                    top: -20vh;
+                    left: -30vw;
+                    width: 22.5vw;
                     height: 55vh;
                 }
             }
             &:nth-of-type(4) {
                 .img-container {
-                    left: 27.5vw;
-                    width: 25vw;
+                    left: 30vw;
+                    width: 22.5vw;
                     height: 25vh;
                 }
             }
@@ -73,22 +83,22 @@
                 .img-container {
                     top: 30vh;
                     left: 5vw;
-                    width: 20vw;
+                    width: 25vw;
                     height: 27.5vh;
                 }
             }
             &:nth-of-type(6) {
                 .img-container {
                     top: 30vh;
-                    left: -22.5vw;
+                    left: -27.5vw;
                     width: 30vw;
-                    height: 27.5vh;
+                    height: 30vh;
                 }
             }
             &:nth-of-type(7) {
                 .img-container {
                     top: 27.5vh;
-                    left: 27.5vw;
+                    left: 32.5vw;
                     width: 17.5vw;
                     height: 22.5vh;
                 }
@@ -96,9 +106,9 @@
             &:nth-of-type(8) {
                 .img-container {
                     top: -32.5vh;
-                    left: 30vw;
-                    width: 15vw;
-                    height: 30vh;
+                    left: 32.5vw;
+                    width: 12.5vw;
+                    height: 12.5vw;
                 }
             }
         }

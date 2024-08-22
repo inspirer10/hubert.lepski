@@ -69,7 +69,7 @@ function About() {
         },
         open: (i) => ({
             y: '0%',
-            transition: { duration: 0.6, delay: 0.0225 * i },
+            transition: { duration: 0.75, delay: 0.025 * i },
         }),
         closed: {
             y: '100%',
@@ -83,11 +83,11 @@ function About() {
         },
         open: {
             opacity: 1,
-            transition: { duration: 0.8, delay: 0.3 },
+            transition: { duration: 0.85, delay: 0.35 },
         },
         closed: {
             opacity: 0,
-            transition: { duration: 0.4 },
+            transition: { duration: 0.35 },
         },
     };
 

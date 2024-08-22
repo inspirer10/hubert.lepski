@@ -1,4 +1,5 @@
 import '@/styles/globals.scss';
+import '@/styles/initialLoading.scss';
 import '@/styles/header.scss';
 import '@/styles/introduction.scss';
 import '@/styles/about.scss';

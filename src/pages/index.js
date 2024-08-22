@@ -1,4 +1,6 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
+import Head from 'next/head';
+import InitialLoading from '@/Components/InitialLoading';
 import About from '@/Components/About';
 import Contact from '@/Components/Contact';
 import Footer from '@/Components/Footer';
@@ -6,12 +8,13 @@ import Header from '@/Components/Header';
 import Introduction from '@/Components/Introduction';
 import Projects from '@/Components/Projects';
 import AboutParallax from '@/Components/AboutParallax';
-import Head from 'next/head';
 
+//import LocomotiveScroll from 'locomotive-scroll';
 import Lenis from 'lenis';
-import LocomotiveScroll from 'locomotive-scroll';
+import { AnimatePresence } from 'framer-motion';
 
 export default function Home() {
+    const [isLoading, setIsLoading] = useState(true);
     {
         /*  useEffect(() => {
         const lenis = new Lenis();
@@ -29,8 +32,12 @@ export default function Home() {
         (async () => {
             const LocomotiveScroll = (await import('locomotive-scroll'))
                 .default;
-
             const locomotiveScroll = new LocomotiveScroll();
+
+            setTimeout(() => {
+                setIsLoading(false);
+                window.scrollTo(0, 0);
+            }, 2300);
         })();
     }, []);
 
@@ -48,10 +55,15 @@ export default function Home() {
                 />
                 <link rel='icon' href='/favicon.png' />
             </Head>
+
             <>
+                <AnimatePresence mode='wait'>
+                    {isLoading && <InitialLoading />}
+                </AnimatePresence>
                 <Header />
+
                 <Introduction />
-                <article
+                {/*   <article
                     className='bufferBeforeParallax'
                     style={{
                         height: '12.5vh',
@@ -59,17 +71,8 @@ export default function Home() {
                         position: 'relative',
                         backgroundColor: '#000',
                     }}
-                ></article>
+                ></article>*/}
                 <AboutParallax />
-                <article
-                    className='bufferAfterParallax'
-                    style={{
-                        height: '10vh',
-                        zIndex: '3',
-                        position: 'relative',
-                        backgroundColor: '#000',
-                    }}
-                ></article>
                 <About />
                 <Projects />
                 <Contact />

@@ -22,7 +22,7 @@ function Footer() {
         <footer>
             <div className='footer_content-container'>
                 <div className='footer_content-wrapper'>
-                    <main>
+                    <article>
                         <motion.svg
                             id='footer_svg'
                             strokeDasharray='2061'
@@ -62,63 +62,65 @@ function Footer() {
                                 And let's work <span>together!</span>
                             </p>
                         </div>
+                    </article>
+
+                    <main>
+                        <div className='footer-links'>
+                            <div className='links-wrapper'>
+                                <Link
+                                    href='https://www.behance.net/inspirer10'
+                                    target='_blank'
+                                    rel='noopener noreferrer'
+                                    className='footer-link'
+                                >
+                                    Behance <Arrow className='arrow-icon' />
+                                </Link>
+                                <Link
+                                    href='tel:697819866'
+                                    target='_blank'
+                                    rel='noopener noreferrer'
+                                    className='footer-link'
+                                >
+                                    Phone <Arrow className='arrow-icon' />
+                                </Link>
+                            </div>
+                            <div className='links-wrapper'>
+                                <Link
+                                    href='https://github.com/inspirer10'
+                                    target='_blank'
+                                    rel='noopener noreferrer'
+                                    className='footer-link'
+                                >
+                                    GitHub <Arrow className='arrow-icon' />
+                                </Link>
+                                <Link
+                                    href='https://www.behance.net/LINKEDIN'
+                                    target='_blank'
+                                    rel='noopener noreferrer'
+                                    className='footer-link'
+                                >
+                                    LinkedIn <Arrow className='arrow-icon' />
+                                </Link>
+                            </div>
+                        </div>
+
+                        <summary>
+                            <p className='info'>
+                                Wrocław, Poland {hours}
+                                <span className='colon'>:</span>
+                                {minutes}
+                            </p>
+
+                            <Link
+                                className='footer-email-link'
+                                href='mailto:hubertlepsky@gmail.com'
+                                target='_blank'
+                                rel='noopener noreferrer'
+                            >
+                                hubertlepsky@gmail.com
+                            </Link>
+                        </summary>
                     </main>
-
-                    <div className='footer-links'>
-                        <div className='links-wrapper'>
-                            <Link
-                                href='https://www.behance.net/inspirer10'
-                                target='_blank'
-                                rel='noopener noreferrer'
-                                className='footer-link'
-                            >
-                                Behance <Arrow className='arrow-icon' />
-                            </Link>
-                            <Link
-                                href='tel:697819866'
-                                target='_blank'
-                                rel='noopener noreferrer'
-                                className='footer-link'
-                            >
-                                Phone <Arrow className='arrow-icon' />
-                            </Link>
-                        </div>
-                        <div className='links-wrapper'>
-                            <Link
-                                href='https://github.com/inspirer10'
-                                target='_blank'
-                                rel='noopener noreferrer'
-                                className='footer-link'
-                            >
-                                GitHub <Arrow className='arrow-icon' />
-                            </Link>
-                            <Link
-                                href='https://www.behance.net/LINKEDIN'
-                                target='_blank'
-                                rel='noopener noreferrer'
-                                className='footer-link'
-                            >
-                                LinkedIn <Arrow className='arrow-icon' />
-                            </Link>
-                        </div>
-                    </div>
-
-                    <summary>
-                        <p className='info'>
-                            Wrocław, Poland {hours}
-                            <span className='colon'>:</span>
-                            {minutes}
-                        </p>
-
-                        <Link
-                            className='footer-email-link'
-                            href='mailto:hubertlepsky@gmail.com'
-                            target='_blank'
-                            rel='noopener noreferrer'
-                        >
-                            hubertlepsky@gmail.com
-                        </Link>
-                    </summary>
                 </div>
             </div>
         </footer>

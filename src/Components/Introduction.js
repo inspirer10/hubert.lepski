@@ -1,145 +1,278 @@
-import React, { useEffect, useRef } from 'react';
-import {
-    animate,
-    motion,
-    useInView,
-    useMotionTemplate,
-    useMotionValue,
-} from 'framer-motion';
+import React, { useRef } from 'react';
+import { motion, useInView } from 'framer-motion';
 import { BsMouse3 } from 'react-icons/bs';
 
-const COLORS = ['#13FFAA', '#1E67C6', '#CE84CF', '#DD335C'];
-
 function Introduction() {
-    const color = useMotionValue(COLORS[0]);
-    const backgroundImage = useMotionTemplate`radial-gradient(125% 150% at 25% 0%, #020617 50%, ${color})`;
-
-    useEffect(() => {
-        animate(color, COLORS, {
-            ease: 'easeInOut',
-            duration: 10,
-            repeat: Infinity,
-            repeatType: 'mirror',
-        });
-    }, []);
-
-    //stars canvas
-    useEffect(() => {
-        const canvas = document.querySelector('.stars');
-        const ctx = canvas.getContext('2d');
-
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
-
-        function random(min, max) {
-            return min + Math.random() * (max + 1 - min);
-        }
-
-        window.addEventListener('resize', function () {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
-
-            stars();
-        });
-
-        function stars() {
-            const canvasSize = canvas.width * canvas.height;
-            const starsFraction = canvasSize / 2000;
-
-            for (let i = 0; i < starsFraction; i++) {
-                //Set up random elements
-                let xPos = random(2, canvas.width - 2);
-                let yPos = random(2, canvas.height - 2);
-                let alpha = random(0.5, 1);
-                let size = random(0.25, 0.25);
-
-                ctx.fillStyle = '#ffffff';
-                ctx.globalAlpha = alpha;
-                ctx.fillRect(xPos, yPos, size, size);
-            }
-        }
-
-        //Add the stars
-        stars();
-    }, []);
-
-    const slideUp = {
-        initial: {
-            y: '100%',
-        },
-        open: (i) => ({
-            y: '0%',
-            transition: { duration: 1, delay: 0.035 * i },
-        }),
-        closed: {
-            y: '100%',
-            transition: { duration: 0.5 },
-        },
-    };
-
-    const opacity = {
-        initial: {
-            opacity: 0,
-        },
-        open: {
-            opacity: 1,
-            transition: { duration: 0.5 },
-        },
-        closed: {
-            opacity: 0,
-            transition: { duration: 0.5 },
-        },
-    };
-
     const description = useRef(null);
-    const isInView = useInView(description);
-    const phrase =
-        ' — an ambitious, open minded, creative Junior Web Developer from Wrocław, Poland';
 
     return (
-        <motion.section
-            style={{ backgroundImage }}
-            className='introduction--section'
-        >
+        <motion.section className='introduction--section'>
+            <div id='bg-wrap'>
+                <svg viewBox='0 0 100 100' preserveAspectRatio='xMidYMid slice'>
+                    <defs>
+                        <radialGradient
+                            id='Gradient1'
+                            cx='50%'
+                            cy='50%'
+                            fx='0.441602%'
+                            fy='50%'
+                            r='.5'
+                        >
+                            <animate
+                                attributeName='fx'
+                                dur='34s'
+                                values='0%;3%;0%'
+                                repeatCount='indefinite'
+                            ></animate>
+                            <stop
+                                offset='0%'
+                                stop-color='rgba(255, 0, 255, 1)'
+                            ></stop>
+                            <stop
+                                offset='100%'
+                                stop-color='rgba(255, 0, 255, 0)'
+                            ></stop>
+                        </radialGradient>
+                        <radialGradient
+                            id='Gradient2'
+                            cx='50%'
+                            cy='50%'
+                            fx='2.68147%'
+                            fy='50%'
+                            r='.5'
+                        >
+                            <animate
+                                attributeName='fx'
+                                dur='23.5s'
+                                values='0%;3%;0%'
+                                repeatCount='indefinite'
+                            ></animate>
+                            <stop
+                                offset='0%'
+                                stop-color='rgba(255, 255, 0, 1)'
+                            ></stop>
+                            <stop
+                                offset='100%'
+                                stop-color='rgba(255, 255, 0, 0)'
+                            ></stop>
+                        </radialGradient>
+                        <radialGradient
+                            id='Gradient3'
+                            cx='50%'
+                            cy='50%'
+                            fx='0.836536%'
+                            fy='50%'
+                            r='.5'
+                        >
+                            <animate
+                                attributeName='fx'
+                                dur='21.5s'
+                                values='0%;3%;0%'
+                                repeatCount='indefinite'
+                            ></animate>
+                            <stop
+                                offset='0%'
+                                stop-color='rgba(0, 255, 255, 1)'
+                            ></stop>
+                            <stop
+                                offset='100%'
+                                stop-color='rgba(0, 255, 255, 0)'
+                            ></stop>
+                        </radialGradient>
+                        <radialGradient
+                            id='Gradient4'
+                            cx='50%'
+                            cy='50%'
+                            fx='4.56417%'
+                            fy='50%'
+                            r='.5'
+                        >
+                            <animate
+                                attributeName='fx'
+                                dur='23s'
+                                values='0%;5%;0%'
+                                repeatCount='indefinite'
+                            ></animate>
+                            <stop
+                                offset='0%'
+                                stop-color='rgba(0, 255, 0, 1)'
+                            ></stop>
+                            <stop
+                                offset='100%'
+                                stop-color='rgba(0, 255, 0, 0)'
+                            ></stop>
+                        </radialGradient>
+                        <radialGradient
+                            id='Gradient5'
+                            cx='50%'
+                            cy='50%'
+                            fx='2.65405%'
+                            fy='50%'
+                            r='.5'
+                        >
+                            <animate
+                                attributeName='fx'
+                                dur='24.5s'
+                                values='0%;5%;0%'
+                                repeatCount='indefinite'
+                            ></animate>
+                            <stop
+                                offset='0%'
+                                stop-color='rgba(0,0,255, 1)'
+                            ></stop>
+                            <stop
+                                offset='100%'
+                                stop-color='rgba(0,0,255, 0)'
+                            ></stop>
+                        </radialGradient>
+                        <radialGradient
+                            id='Gradient6'
+                            cx='50%'
+                            cy='50%'
+                            fx='0.981338%'
+                            fy='50%'
+                            r='.5'
+                        >
+                            <animate
+                                attributeName='fx'
+                                dur='25.5s'
+                                values='0%;5%;0%'
+                                repeatCount='indefinite'
+                            ></animate>
+                            <stop
+                                offset='0%'
+                                stop-color='rgba(255,0,0, 1)'
+                            ></stop>
+                            <stop
+                                offset='100%'
+                                stop-color='rgba(255,0,0, 0)'
+                            ></stop>
+                        </radialGradient>
+                    </defs>
+
+                    <rect
+                        x='13.744%'
+                        y='1.18473%'
+                        width='100%'
+                        height='100%'
+                        fill='url(#Gradient1)'
+                        transform='rotate(334.41 50 50)'
+                    >
+                        <animate
+                            attributeName='x'
+                            dur='20s'
+                            values='25%;0%;25%'
+                            repeatCount='indefinite'
+                        ></animate>
+                        <animate
+                            attributeName='y'
+                            dur='21s'
+                            values='0%;25%;0%'
+                            repeatCount='indefinite'
+                        ></animate>
+                        <animateTransform
+                            attributeName='transform'
+                            type='rotate'
+                            from='0 50 50'
+                            to='360 50 50'
+                            dur='9s'
+                            repeatCount='indefinite'
+                        ></animateTransform>
+                    </rect>
+                    <rect
+                        x='-2.17916%'
+                        y='35.4267%'
+                        width='100%'
+                        height='100%'
+                        fill='url(#Gradient2)'
+                        transform='rotate(255.072 50 50)'
+                    >
+                        <animate
+                            attributeName='x'
+                            dur='23s'
+                            values='-25%;0%;-25%'
+                            repeatCount='indefinite'
+                        ></animate>
+                        <animate
+                            attributeName='y'
+                            dur='24s'
+                            values='0%;50%;0%'
+                            repeatCount='indefinite'
+                        ></animate>
+                        <animateTransform
+                            attributeName='transform'
+                            type='rotate'
+                            from='0 50 50'
+                            to='360 50 50'
+                            dur='14s'
+                            repeatCount='indefinite'
+                        ></animateTransform>
+                    </rect>
+                    <rect
+                        x='9.00483%'
+                        y='14.5733%'
+                        width='100%'
+                        height='100%'
+                        fill='url(#Gradient3)'
+                        transform='rotate(139.903 50 50)'
+                    >
+                        <animate
+                            attributeName='x'
+                            dur='25s'
+                            values='0%;25%;0%'
+                            repeatCount='indefinite'
+                        ></animate>
+                        <animate
+                            attributeName='y'
+                            dur='14s'
+                            values='0%;25%;0%'
+                            repeatCount='indefinite'
+                        ></animate>
+                        <animateTransform
+                            attributeName='transform'
+                            type='rotate'
+                            from='360 50 50'
+                            to='0 50 50'
+                            dur='12s'
+                            repeatCount='indefinite'
+                        ></animateTransform>
+                    </rect>
+                </svg>
+            </div>
+
             <div className='introduction-wrapper'>
                 <h2>
                     Hey, <br /> I’m Hubert
                 </h2>
 
-                <div className='description'>
-                    <div className='body'>
-                        <p ref={description}>
-                            {phrase.split(' ').map((word, index) => {
-                                return (
-                                    <span className='mask'>
-                                        <motion.span
-                                            variants={slideUp}
-                                            custom={index}
-                                            animate={
-                                                isInView ? 'open' : 'closed'
-                                            }
-                                            key={index}
-                                        >
-                                            {word}
-                                        </motion.span>
-                                    </span>
-                                );
-                            })}
-                        </p>
+                <div className='introduction__description'>
+                    <p>— an open minded, creative, ambitious</p>
+                    <div class='container'>
+                        <div class='roles'>
+                            <p>
+                                <span className='static-text'>Junior</span> Web
+                                Developer
+                            </p>
+                            <p>
+                                <span className='static-text'>Junior</span>
+                                Frontend Developer
+                            </p>
+                            <p>
+                                <span className='static-text'>Junior</span>
+                                React Developer
+                            </p>
+                            <p>
+                                <span className='static-text'>Junior</span>
+                                JavaScript Developer
+                            </p>
+                        </div>
                     </div>
+                    <p>from Wrocław, Poland</p>
                 </div>
-
-                {/* <p className='introduction__description'>
-                    — an ambitious, open minded, creative Junior Web Developer
-                    from Wrocław, Poland
-                </p> */}
             </div>
-
             <div className='scroll-Suggestion'>
                 <BsMouse3 className='icon' />
             </div>
-
-            <canvas class='stars'></canvas>
         </motion.section>
     );
 }

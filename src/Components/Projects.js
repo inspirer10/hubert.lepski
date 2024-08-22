@@ -1,5 +1,5 @@
 import React, { useRef, useState } from 'react';
-import { motion, useTransform, useScroll } from 'framer-motion';
+import { motion, useTransform, useScroll, color } from 'framer-motion';
 import Image from 'next/image';
 import SingleProject from './SingleProject';
 import ProjectsModal from './ProjectsModal';
@@ -189,45 +189,40 @@ function Projects() {
 
     const slider1 = [
         {
-            color: '#e3e5e7',
-            src: 'webstoreScroll.jpg',
+            color: '#000',
+            src: '/slider/astraCrypto.png',
         },
-
         {
-            color: '#d6d7dc',
-            src: 'webstoreScroll.jpg',
+            color: '#4C493F',
+            src: '/slider/myHome.png',
         },
-
         {
-            color: '#e3e3e3',
-            src: 'webstoreScroll.jpg',
+            color: '#FFFFFF',
+            src: '/slider/tuscany.png',
         },
-
         {
-            color: '#21242b',
-            src: 'webstoreScroll.jpg',
+            color: '#000',
+            src: '/slider/musthave.png',
         },
     ];
 
     const slider2 = [
         {
-            color: '#d4e3ec',
-            src: 'webstoreScroll.jpg',
+            color: '#4871FF',
+            src: '/slider/cars.png',
         },
-
         {
-            color: '#e5e0e1',
-            src: 'webstoreScroll.jpg',
+            color: '#05070B',
+            src: '/slider/astraNFT.png',
         },
-
         {
-            color: '#d7d4cf',
-            src: 'webstoreScroll.jpg',
+            color: '#FFFFFF',
+
+            src: '/slider/car.png',
         },
-
         {
-            color: '#e1dad6',
-            src: 'webstoreScroll.jpg',
+            color: '#FEF0DE',
+            src: '/slider/sushi.png',
         },
     ];
 
@@ -244,15 +239,15 @@ function Projects() {
         <>
             <article ref={container} className='slidingImages'>
                 <motion.div style={{ x: x1 }} className='slider'>
-                    {slider1.map((project, index) => {
+                    {slider1.map(({ color, src }, index) => {
                         return (
                             <div
                                 className='project'
-                                style={{ backgroundColor: project.color }}
+                                style={{ backgroundColor: color }}
                             >
                                 <div key={index} className='imageContainer'>
                                     <Image
-                                        src={`/${project.src}`}
+                                        src={`${src}`}
                                         alt='project thumbnail'
                                         fill
                                     />
@@ -263,15 +258,15 @@ function Projects() {
                 </motion.div>
 
                 <motion.div style={{ x: x2 }} className='slider'>
-                    {slider2.map((project, index) => {
+                    {slider2.map(({ color, src }, index) => {
                         return (
                             <div
                                 className='project'
-                                style={{ backgroundColor: project.color }}
+                                style={{ backgroundColor: color }}
                             >
                                 <div key={index} className='imageContainer'>
                                     <Image
-                                        src={`/${project.src}`}
+                                        src={`${src}`}
                                         alt='project thumbnail'
                                         fill
                                     />

@@ -1,8 +1,9 @@
 import { useScroll, useTransform, motion } from 'framer-motion';
 import Image from 'next/image';
-import React, { useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 
 function AboutParallax() {
+    const canvasRef = useRef(null);
     const zoomParallaxContainer = useRef(null);
     const { scrollYProgress } = useScroll({
         target: zoomParallaxContainer,
@@ -38,7 +39,6 @@ function AboutParallax() {
             fit: 'cover',
         },
         {
-            src: `/Avatar.jpg`, //prawy
             src: `/aboutMe/starWars.jpg`, //prawy
             scale: scale5,
             fit: 'contain',
@@ -64,6 +64,65 @@ function AboutParallax() {
             fit: 'cover',
         },
     ];
+
+    //stars canvas
+    useEffect(() => {
+        const canvas = canvasRef.current;
+        const ctx = canvas.getContext('2d');
+
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            drawStars(); // Ponowne rysowanie gwiazd po zmianie rozmiaru
+        }
+
+        let debounceTimer;
+        const handleResize = () => {
+            clearTimeout(debounceTimer);
+            debounceTimer = setTimeout(resizeCanvas, 200);
+        };
+
+        window.addEventListener('resize', handleResize);
+
+        function random(min, max) {
+            return min + Math.random() * (max + 1 - min);
+        }
+
+        const starsArray = [];
+        function createStars() {
+            const canvasSize = canvas.width * canvas.height;
+            const starsFraction = canvasSize / 1500;
+            for (let i = 0; i < starsFraction; i++) {
+                starsArray.push({
+                    x: random(2, canvas.width - 2),
+                    y: random(2, canvas.height - 2),
+                    alpha: random(0.5, 1),
+                    size: random(0.25, 0.25),
+                });
+            }
+        }
+
+        function drawStars() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            ctx.fillStyle = '#FFF';
+            starsArray.forEach((star) => {
+                ctx.globalAlpha = star.alpha;
+                ctx.fillRect(star.x, star.y, star.size, star.size);
+            });
+        }
+
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        //Add the stars
+        resizeCanvas();
+        createStars();
+        drawStars();
+
+        return () => {
+            window.removeEventListener('resize', handleResize);
+        };
+    }, []);
 
     return (
         <section
@@ -97,6 +156,7 @@ function AboutParallax() {
                         </div>
                     </motion.div>
                 ))}
+                <canvas ref={canvasRef} className='stars'></canvas>
             </div>
         </section>
     );
