@@ -15,7 +15,7 @@ function Projects() {
             icon: '👗',
             color: 'linear-gradient(#000, #000)',
             src: 'webstoreScroll.jpg',
-            url: 'https://inspirer10.github.io/',
+            url: 'https://musthave.vercel.app/',
             id: 1,
         },
 
@@ -113,8 +113,8 @@ function Projects() {
             name: 'Weather App',
             icon: '🌤️',
             color: 'linear-gradient(to right, #a5d0ff, #007bff)',
-            src: 'img4.jpg',
-            url: 'https://inspirer10.github.io/',
+            src: 'weatherApp.jpg',
+            url: 'https://inspirer10.github.io/weather-app/',
             id: 7,
         },
 
@@ -132,7 +132,7 @@ function Projects() {
             icon: '🐶',
             color: 'linear-gradient(to right top, #c8c8c8, #c8c8c8)',
             src: 'img4.jpg',
-            url: 'https://inspirer10.github.io/',
+            url: 'https://inspirer10.github.io/marledipawele/',
             id: 10,
         },
 
@@ -149,8 +149,8 @@ function Projects() {
             name: 'Feed India',
             icon: '🥘',
             color: 'linear-gradient(to right, #0d1803, #0d1803)',
-            src: 'img4.jpg',
-            url: 'https://inspirer10.github.io/',
+            src: 'feed-india.png',
+            url: 'https://inspirer10.github.io/feed-india/',
             id: 4,
         },
 
@@ -158,8 +158,8 @@ function Projects() {
             name: 'Pizza Restaurant',
             icon: '🍕',
             color: 'linear-gradient(to right top, #ff0000, #ffee00)',
-            src: 'pizzaRestaurant-scroll.png',
-            url: 'https://inspirer10.github.io/',
+            src: 'pizzaRestaurant-Scroll.jpg',
+            url: 'https://inspirer10.github.io/restaurant-page/',
             id: 17,
         },
 
@@ -172,11 +172,11 @@ function Projects() {
             id: 18,
         },
         {
-            name: 'Project Name',
-            icon: '😀',
+            name: 'my-Home Store',
+            icon: '🛋️',
             color: 'linear-gradient(to right top, #000, #fff)',
-            src: '.png',
-            url: 'https://inspirer10.github.io/',
+            src: 'myHome-scroll.png',
+            url: 'https://inspirer10.github.io/my-home/',
             id: 19,
         },
     ];
@@ -205,7 +205,6 @@ function Projects() {
             src: '/slider/musthave.png',
         },
     ];
-
     const slider2 = [
         {
             color: '#4871FF',

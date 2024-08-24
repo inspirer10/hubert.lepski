@@ -5,6 +5,32 @@ import Image from 'next/image';
 import React, { useRef } from 'react';
 
 function About() {
+    const technologies = [
+        { name: 'html' },
+        { name: 'css' },
+        { name: 'sass' },
+        { name: 'git' },
+
+        { name: 'js' },
+        { name: 'react' },
+        { name: 'redux' },
+        { name: 'router' },
+
+        { name: 'ts' },
+        { name: 'next' },
+
+        { name: 'mui' },
+        { name: 'bootstrap' },
+
+        { name: 'node' },
+        { name: 'express' },
+        { name: 'mongo' },
+
+        { name: 'rwd' },
+        { name: 'uxui' },
+        { name: 'vsc' },
+    ];
+
     const surface1 = useRef(null);
     const surface2 = useRef(null);
     const surface3 = useRef(null);
@@ -107,7 +133,7 @@ function About() {
                 handleMouseLeave(e);
             }}
         >
-            <div ref={surface1} className='surface'>
+            {/*  <div ref={surface1} className='surface'>
                 <Image
                     src='/technologies/express.png'
                     alt='thumbnail'
@@ -129,7 +155,6 @@ function About() {
                     height={100}
                 />
             </div>
-
             <div ref={surface2} className='surface'>
                 <Image
                     src='/technologies/html.png'
@@ -152,7 +177,6 @@ function About() {
                     height={100}
                 />
             </div>
-
             <div ref={surface3} className='surface'>
                 <Image
                     src='/technologies/react.png'
@@ -181,7 +205,6 @@ function About() {
                     height={100}
                 />
             </div>
-
             <div ref={surface4} className='surface'>
                 <Image
                     src='/technologies/node.png'
@@ -210,7 +233,7 @@ function About() {
                     width={200}
                     height={100}
                 />
-            </div>
+            </div>*/}
 
             <div className='text-container'>
                 <div className='text-content-wrapper'>
@@ -240,6 +263,31 @@ function About() {
                         laboriosam voluptas ad eum hic nisi et.
                     </motion.p>
                 </div>
+            </div>
+
+            <div className='technologies-slider'>
+                <div class='slider-items'>
+                    {technologies.map(({ name }) => (
+                        <Image
+                            src={`/technologies/${name}.png`}
+                            width={150}
+                            height={150}
+                            alt='technology thumbnail'
+                        />
+                    ))}
+                </div>
+
+                <div aria-hidden='true' class='slider-items'>
+                    {technologies.map(({ name }) => (
+                        <Image
+                            src={`/technologies/${name}.png`}
+                            width={150}
+                            height={150}
+                            alt='technology thumbnail'
+                        />
+                    ))}
+                </div>
+                <div class='mask'></div>
             </div>
         </section>
     );

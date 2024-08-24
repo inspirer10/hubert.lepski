@@ -1,10 +1,8 @@
-import React, { useRef } from 'react';
-import { motion, useInView } from 'framer-motion';
+import React from 'react';
+import { motion } from 'framer-motion';
 import { BsMouse3 } from 'react-icons/bs';
 
 function Introduction() {
-    const description = useRef(null);
-
     return (
         <motion.section className='introduction--section'>
             <div id='bg-wrap'>
