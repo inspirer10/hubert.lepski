@@ -92,6 +92,15 @@ function Projects() {
         },
 
         {
+            name: 'Home Store',
+            icon: '🛋️',
+            color: 'linear-gradient(to right top, #e38643, #fff)',
+            src: 'myHome-scroll.jpg',
+            url: 'https://inspirer10.github.io/my-home/',
+            id: 19,
+        },
+
+        {
             name: 'Cars Rental',
             icon: '🚗',
             color: 'linear-gradient(to right top, #ffffff, #e6e2ff, #cbc6ff, #adabff, #8a91ff, #7886ff, #637bff, #4870ff, #4870ff, #4870ff, #4870ff, #4870ff)',
@@ -170,14 +179,6 @@ function Projects() {
             src: 'hangmanScroll.png',
             url: 'https://inspirer10.github.io/hangman-react/',
             id: 18,
-        },
-        {
-            name: 'my-Home Store',
-            icon: '🛋️',
-            color: 'linear-gradient(to right top, #000, #fff)',
-            src: 'myHome-scroll.png',
-            url: 'https://inspirer10.github.io/my-home/',
-            id: 19,
         },
     ];
 
@@ -280,9 +281,9 @@ function Projects() {
                 </motion.div>
             </article>
 
-            <section id='projects'>
+            <section id='projects' className='section' data-bgcolor='#000'>
                 <article className='projects-gallery'>
-                    <p className='fixed_projects'>projects</p>
+                    <p className='fixed_projects'>PROJECTS</p>
                     <div className='projects-gallery-container'>
                         {projectsData.map((project, i) => (
                             <a

@@ -7,7 +7,7 @@
     flex-direction: column;
     //margin-top: 7.5vh;
     padding-top: 5vh;
-    background-color: #fff;
+    //background-color: #fff;
     .slider {
         display: flex;
         position: relative;
@@ -41,24 +41,24 @@
     color: #fff;
     display: flex;
     height: auto;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
     //position: relative;
     //overflow-x: hidden;
     .fixed_projects {
         font-family: 'SF Pro Display', sans-serif;
-        font-family: monospace;
-        font-size: 2.5rem;
-        font-weight: 300;
+        font-size: 2.75rem;
+        font-weight: 400;
         letter-spacing: 1px;
-        position: fixed;
+        width: 0;
+        position: sticky;
         top: 50%;
-        right: 0;
+        left: 0;
         z-index: 0;
-        transform: translateY(-100%);
-        rotate: 90deg;
-        color: #fff;
-        text-transform: uppercase;
+        transform: translate(0vh, -200%);
+        display: flex;
+        justify-content: center;
+        rotate: 270deg;
         user-select: none;
     }
     .projects-gallery-container {

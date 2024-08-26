@@ -1,6 +1,6 @@
 .contact_section {
-    padding: 15vh 0 30vh;
-    background-color: #fff;
+    padding: 15vh 0 27.5vh;
+    //background-color: #fff;
     color: #000;
     display: flex;
     align-items: center;
@@ -39,8 +39,8 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-        width: 80%;
-        margin: 10vh auto 0;
+        width: 90%;
+        margin: 12.5vh auto 0;
         button {
             font-family: 'SF Pro Display', sans-serif;
             font-size: 22px;
@@ -79,12 +79,14 @@
             }
         }
         .link {
+            width: 33%;
             font-family: 'SF Pro Display', sans-serif;
             font-size: 3.5rem;
             font-weight: 300;
             letter-spacing: 1.25px;
             padding: 0.75rem;
             position: relative;
+            text-align: center;
             .background-icon {
                 font-size: 15rem;
                 position: absolute;
@@ -94,6 +96,12 @@
                 pointer-events: none;
                 opacity: 0.075;
                 transition: .175s ease-in-out;
+            }
+            p {
+                font-family: 'SF Pro Display', sans-serif;
+                font-size: 2.75rem;
+                font-weight: 500;
+                letter-spacing: -0.75px;
             }
             .arrow-icon {
                 transition: .125s ease-out;

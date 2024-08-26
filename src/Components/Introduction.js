@@ -1,241 +1,93 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { BsMouse3 } from 'react-icons/bs';
 
 function Introduction() {
+    useEffect(() => {
+        const canvas = document.getElementById('animated-background');
+        const ctx = canvas.getContext('2d');
+
+        // Ustawienia canvas
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        const colors = [
+            'rgba(255, 0, 255, 1)',
+            '#ff00e1',
+            'rgba(0, 255, 255, 1)',
+            '#3300ff',
+            'rgba(0,0,255, 1)',
+            '#1100ff',
+        ];
+
+        const gradients = [];
+
+        function createGradients() {
+            for (let i = 0; i < 6; i++) {
+                const gradient = {
+                    x: Math.random() * canvas.width,
+                    y: Math.random() * canvas.height,
+                    radius: (Math.random() * canvas.width) / 2,
+                    color: colors[i],
+                    speedX: Math.random() * 2 - 1, // Prędkość pozioma
+                    speedY: Math.random() * 2 - 1, // Prędkość pionowa
+                };
+                gradients.push(gradient);
+            }
+        }
+
+        function draw() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            gradients.forEach((gradient) => {
+                const radialGradient = ctx.createRadialGradient(
+                    gradient.x,
+                    gradient.y,
+                    0,
+                    gradient.x,
+                    gradient.y,
+                    gradient.radius
+                );
+
+                radialGradient.addColorStop(0, gradient.color);
+                radialGradient.addColorStop(1, 'rgba(255, 255, 255, 0)');
+
+                ctx.fillStyle = radialGradient;
+                ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+                // Aktualizacja pozycji dla animacji ruchu
+                gradient.x += gradient.speedX;
+                gradient.y += gradient.speedY;
+
+                // Odbijanie się od krawędzi
+                if (gradient.x <= 0 || gradient.x >= canvas.width)
+                    gradient.speedX *= -1;
+                if (gradient.y <= 0 || gradient.y >= canvas.height)
+                    gradient.speedY *= -1;
+            });
+
+            requestAnimationFrame(draw);
+        }
+
+        createGradients();
+        draw();
+
+        // Obsługa zmiany rozmiaru okna
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+
+        window.addEventListener('resize', resizeCanvas);
+
+        // Czyszczenie efektu po demontażu komponentu
+        return () => window.removeEventListener('resize', resizeCanvas);
+    }, []);
+
     return (
         <motion.section className='introduction--section'>
             <div id='bg-wrap'>
-                <svg viewBox='0 0 100 100' preserveAspectRatio='xMidYMid slice'>
-                    <defs>
-                        <radialGradient
-                            id='Gradient1'
-                            cx='50%'
-                            cy='50%'
-                            fx='0.441602%'
-                            fy='50%'
-                            r='.5'
-                        >
-                            <animate
-                                attributeName='fx'
-                                dur='34s'
-                                values='0%;3%;0%'
-                                repeatCount='indefinite'
-                            ></animate>
-                            <stop
-                                offset='0%'
-                                stop-color='rgba(255, 0, 255, 1)'
-                            ></stop>
-                            <stop
-                                offset='100%'
-                                stop-color='rgba(255, 0, 255, 0)'
-                            ></stop>
-                        </radialGradient>
-                        <radialGradient
-                            id='Gradient2'
-                            cx='50%'
-                            cy='50%'
-                            fx='2.68147%'
-                            fy='50%'
-                            r='.5'
-                        >
-                            <animate
-                                attributeName='fx'
-                                dur='23.5s'
-                                values='0%;3%;0%'
-                                repeatCount='indefinite'
-                            ></animate>
-                            <stop
-                                offset='0%'
-                                stop-color='rgba(255, 255, 0, 1)'
-                            ></stop>
-                            <stop
-                                offset='100%'
-                                stop-color='rgba(255, 255, 0, 0)'
-                            ></stop>
-                        </radialGradient>
-                        <radialGradient
-                            id='Gradient3'
-                            cx='50%'
-                            cy='50%'
-                            fx='0.836536%'
-                            fy='50%'
-                            r='.5'
-                        >
-                            <animate
-                                attributeName='fx'
-                                dur='21.5s'
-                                values='0%;3%;0%'
-                                repeatCount='indefinite'
-                            ></animate>
-                            <stop
-                                offset='0%'
-                                stop-color='rgba(0, 255, 255, 1)'
-                            ></stop>
-                            <stop
-                                offset='100%'
-                                stop-color='rgba(0, 255, 255, 0)'
-                            ></stop>
-                        </radialGradient>
-                        <radialGradient
-                            id='Gradient4'
-                            cx='50%'
-                            cy='50%'
-                            fx='4.56417%'
-                            fy='50%'
-                            r='.5'
-                        >
-                            <animate
-                                attributeName='fx'
-                                dur='23s'
-                                values='0%;5%;0%'
-                                repeatCount='indefinite'
-                            ></animate>
-                            <stop
-                                offset='0%'
-                                stop-color='rgba(0, 255, 0, 1)'
-                            ></stop>
-                            <stop
-                                offset='100%'
-                                stop-color='rgba(0, 255, 0, 0)'
-                            ></stop>
-                        </radialGradient>
-                        <radialGradient
-                            id='Gradient5'
-                            cx='50%'
-                            cy='50%'
-                            fx='2.65405%'
-                            fy='50%'
-                            r='.5'
-                        >
-                            <animate
-                                attributeName='fx'
-                                dur='24.5s'
-                                values='0%;5%;0%'
-                                repeatCount='indefinite'
-                            ></animate>
-                            <stop
-                                offset='0%'
-                                stop-color='rgba(0,0,255, 1)'
-                            ></stop>
-                            <stop
-                                offset='100%'
-                                stop-color='rgba(0,0,255, 0)'
-                            ></stop>
-                        </radialGradient>
-                        <radialGradient
-                            id='Gradient6'
-                            cx='50%'
-                            cy='50%'
-                            fx='0.981338%'
-                            fy='50%'
-                            r='.5'
-                        >
-                            <animate
-                                attributeName='fx'
-                                dur='25.5s'
-                                values='0%;5%;0%'
-                                repeatCount='indefinite'
-                            ></animate>
-                            <stop
-                                offset='0%'
-                                stop-color='rgba(255,0,0, 1)'
-                            ></stop>
-                            <stop
-                                offset='100%'
-                                stop-color='rgba(255,0,0, 0)'
-                            ></stop>
-                        </radialGradient>
-                    </defs>
-
-                    <rect
-                        x='13.744%'
-                        y='1.18473%'
-                        width='100%'
-                        height='100%'
-                        fill='url(#Gradient1)'
-                        transform='rotate(334.41 50 50)'
-                    >
-                        <animate
-                            attributeName='x'
-                            dur='20s'
-                            values='25%;0%;25%'
-                            repeatCount='indefinite'
-                        ></animate>
-                        <animate
-                            attributeName='y'
-                            dur='21s'
-                            values='0%;25%;0%'
-                            repeatCount='indefinite'
-                        ></animate>
-                        <animateTransform
-                            attributeName='transform'
-                            type='rotate'
-                            from='0 50 50'
-                            to='360 50 50'
-                            dur='9s'
-                            repeatCount='indefinite'
-                        ></animateTransform>
-                    </rect>
-                    <rect
-                        x='-2.17916%'
-                        y='35.4267%'
-                        width='100%'
-                        height='100%'
-                        fill='url(#Gradient2)'
-                        transform='rotate(255.072 50 50)'
-                    >
-                        <animate
-                            attributeName='x'
-                            dur='23s'
-                            values='-25%;0%;-25%'
-                            repeatCount='indefinite'
-                        ></animate>
-                        <animate
-                            attributeName='y'
-                            dur='24s'
-                            values='0%;50%;0%'
-                            repeatCount='indefinite'
-                        ></animate>
-                        <animateTransform
-                            attributeName='transform'
-                            type='rotate'
-                            from='0 50 50'
-                            to='360 50 50'
-                            dur='14s'
-                            repeatCount='indefinite'
-                        ></animateTransform>
-                    </rect>
-                    <rect
-                        x='9.00483%'
-                        y='14.5733%'
-                        width='100%'
-                        height='100%'
-                        fill='url(#Gradient3)'
-                        transform='rotate(139.903 50 50)'
-                    >
-                        <animate
-                            attributeName='x'
-                            dur='25s'
-                            values='0%;25%;0%'
-                            repeatCount='indefinite'
-                        ></animate>
-                        <animate
-                            attributeName='y'
-                            dur='14s'
-                            values='0%;25%;0%'
-                            repeatCount='indefinite'
-                        ></animate>
-                        <animateTransform
-                            attributeName='transform'
-                            type='rotate'
-                            from='360 50 50'
-                            to='0 50 50'
-                            dur='12s'
-                            repeatCount='indefinite'
-                        ></animateTransform>
-                    </rect>
-                </svg>
+                <canvas id='animated-background'></canvas>
             </div>
 
             <div className='introduction-wrapper'>

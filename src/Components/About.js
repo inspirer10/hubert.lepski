@@ -1,11 +1,12 @@
 'use client';
-import { useInView, motion } from 'framer-motion';
-import gsap from 'gsap';
+import { useInView, motion, color } from 'framer-motion';
 import Image from 'next/image';
 import React, { useRef } from 'react';
 
+import { FaLocationArrow } from 'react-icons/fa6';
+import { BsBoxArrowUpRight } from 'react-icons/bs';
 function About() {
-    const technologies = [
+    const technologiesSlider = [
         { name: 'html' },
         { name: 'css' },
         { name: 'sass' },
@@ -31,63 +32,26 @@ function About() {
         { name: 'vsc' },
     ];
 
-    const surface1 = useRef(null);
-    const surface2 = useRef(null);
-    const surface3 = useRef(null);
-    const surface4 = useRef(null);
-
-    let requestAnimationFrameId = null;
-    let xForce = 0;
-    let yForce = 0;
-    const easing = 0.08;
-    const speed = 0.01;
-
-    const manageMouseMove = (e) => {
-        const { movementX, movementY } = e;
-        xForce += movementX * speed;
-        yForce += movementY * speed;
-        if (requestAnimationFrameId == null) {
-            requestAnimationFrameId = requestAnimationFrame(animate);
-        }
-    };
-
-    const lerp = (start, target, amount) =>
-        start * (1 - amount) + target * amount;
-
-    const animate = () => {
-        xForce = lerp(xForce, 0, easing);
-        yForce = lerp(yForce, 0, easing);
-
-        gsap.set(surface1.current, {
-            x: `+=${xForce * 0.7}`,
-            y: `+=${yForce * 0.7}`,
-        });
-        gsap.set(surface2.current, {
-            x: `+=${xForce * 0.425}`,
-            y: `+=${yForce * 0.425}`,
-        });
-        gsap.set(surface3.current, {
-            x: `+=${xForce * 0.25}`,
-            y: `+=${yForce * 0.25}`,
-        });
-        gsap.set(surface4.current, {
-            x: `+=${xForce * 0.625}`,
-            y: `+=${yForce * 0.625}`,
-        });
-
-        if (Math.abs(xForce) < 0.01) xForce = 0;
-        if (Math.abs(yForce) < 0.01) yForce = 0;
-        if (xForce != 0 || yForce != 0) {
-            requestAnimationFrame(animate);
-        } else {
-            cancelAnimationFrame(requestAnimationFrameId);
-            requestAnimationFrameId = null;
-        }
-    };
-
-    const handleMouseLeave = (e) => {
-        //console.log(e);
-    };
+    const technologies = [
+        { name: 'html', backgroundColor: '#DC5029', color: '#FFF' },
+        { name: 'css', backgroundColor: '#264DE4', color: '#FFF' },
+        { name: 'sass', backgroundColor: '#CC6699', color: '#FFF' },
+        { name: 'git', backgroundColor: '#8ED25E', color: '#000' },
+        { name: 'js', backgroundColor: '#F0DC4E', color: '#000' },
+        { name: 'react', backgroundColor: '#0DD8FF', color: '#000' },
+        { name: 'next', backgroundColor: '#60CFCA', color: '#000' },
+        { name: 'ts', backgroundColor: 'royalblue', color: '#FFF' },
+        { name: 'react router', backgroundColor: '#272425', color: '#FFF' },
+        { name: 'redux toolkit', backgroundColor: '#764ABE', color: '#FFF' },
+        { name: 'node', backgroundColor: '#8AC600', color: '#000' },
+        { name: 'express', backgroundColor: '#363636', color: '#FFF' },
+        { name: 'mongoDB', backgroundColor: '#4EAA3F', color: '#FFF' },
+        { name: 'mui', backgroundColor: '#007DFE', color: '#FFF' },
+        { name: 'bootstrap', backgroundColor: '#7B09F7', color: '#FFF' },
+        { name: 'rwd', backgroundColor: '#000', color: '#FFF' },
+        { name: 'ux/ui', backgroundColor: '#000', color: '#FFF' },
+        { name: 'vsc', backgroundColor: '#1F9CEF', color: '#FFF' },
+    ];
 
     const slideUp = {
         initial: {
@@ -109,135 +73,32 @@ function About() {
         },
         open: {
             opacity: 1,
-            transition: { duration: 0.85, delay: 0.35 },
+            transition: { duration: 0.85, delay: 0.375 },
         },
         closed: {
             opacity: 0,
-            transition: { duration: 0.35 },
+            transition: { duration: 0.3 },
         },
     };
 
+    /*const phrase =
+        'Creative thinker and problem solver are where my mind wanders using my knowldege and passion for design as my medium.';*/
+
     const phrase =
-        'Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque optio accusantium, temporibus voluptatibus enim laboriosam voluptas ad eum hic nisi et.';
+        'As a person focused on self-learning and self-improvement, I constantly advance my programming skills, which enables me to come up with creative solutions to various web design-related problems';
+
     const description = useRef(null);
     const isInView = useInView(description);
 
     return (
         <section
-            className='aboutMe-section'
+            data-bgcolor='#fff'
+            className='aboutMe-section section'
             id='about'
-            onMouseMove={(e) => {
-                manageMouseMove(e);
-            }}
-            onMouseLeave={(e) => {
-                handleMouseLeave(e);
-            }}
         >
-            {/*  <div ref={surface1} className='surface'>
-                <Image
-                    src='/technologies/express.png'
-                    alt='thumbnail'
-                    width={300}
-                    height={100}
-                />
-
-                <Image
-                    src='/technologies/sass.png'
-                    alt='thumbnail'
-                    width={300}
-                    height={100}
-                />
-
-                <Image
-                    src='/technologies/css.png'
-                    alt='thumbnail'
-                    width={225}
-                    height={100}
-                />
-            </div>
-            <div ref={surface2} className='surface'>
-                <Image
-                    src='/technologies/html.png'
-                    alt='thumbnail'
-                    width={250}
-                    height={100}
-                />
-
-                <Image
-                    src='/technologies/next.png'
-                    alt='thumbnail'
-                    width={200}
-                    height={100}
-                />
-
-                <Image
-                    src='/technologies/rwd.png'
-                    alt='thumbnail'
-                    width={225}
-                    height={100}
-                />
-            </div>
-            <div ref={surface3} className='surface'>
-                <Image
-                    src='/technologies/react.png'
-                    alt='thumbnail'
-                    width={150}
-                    height={100}
-                />
-
-                <Image
-                    src='/technologies/ts.png'
-                    alt='thumbnail'
-                    width={200}
-                    height={100}
-                />
-
-                <Image
-                    src='/technologies/mongo.png'
-                    alt='thumbnail'
-                    width={200}
-                    height={100}
-                />
-                <Image
-                    src='/technologies/redux.png'
-                    alt='thumbnail'
-                    width={200}
-                    height={100}
-                />
-            </div>
-            <div ref={surface4} className='surface'>
-                <Image
-                    src='/technologies/node.png'
-                    alt='thumbnail'
-                    width={150}
-                    height={100}
-                />
-
-                <Image
-                    src='/technologies/js.png'
-                    alt='thumbnail'
-                    width={200}
-                    height={100}
-                />
-
-                <Image
-                    src='/technologies/git.png'
-                    alt='thumbnail'
-                    width={200}
-                    height={100}
-                />
-
-                <Image
-                    src='/technologies/vsc.png'
-                    alt='thumbnail'
-                    width={200}
-                    height={100}
-                />
-            </div>*/}
-
             <div className='text-container'>
                 <div className='text-content-wrapper'>
-                    <p ref={description}>
+                    <p ref={description} className='splitted'>
                         {phrase.split(' ').map((word, index) => {
                             return (
                                 <span className='mask'>
@@ -254,40 +115,121 @@ function About() {
                         })}
                     </p>
 
-                    <motion.p
-                        variants={opacity}
-                        animate={isInView ? 'open' : 'closed'}
-                    >
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Neque optio accusantium, temporibus voluptatibus enim
-                        laboriosam voluptas ad eum hic nisi et.
-                    </motion.p>
+                    <article className='cards-wrapper'>
+                        <div className='card'>
+                            <div className='top-wrapper'>
+                                <h6>01</h6>
+                                <BsBoxArrowUpRight className='arrow-icon' />
+                            </div>
+
+                            <h5>Some</h5>
+                            <div className='content'>
+                                <p>
+                                    As a person focused on self-learning and
+                                    self-improvement, I constantly advance my
+                                    programming skills, which enables me to come
+                                    up with creative solutions to various web
+                                    design-related problems
+                                </p>
+                            </div>
+                        </div>
+                        <div className='card'>
+                            <div className='top-wrapper'>
+                                <h6>02</h6>
+                                <BsBoxArrowUpRight className='arrow-icon' />
+                            </div>
+
+                            <h5>Info</h5>
+                            <div className='content'>
+                                <p>
+                                    Since I like discussing other people's ideas
+                                    and suggesting my own solutions, I consider
+                                    myself as a good team player
+                                </p>
+                                <p>
+                                    I mastered the skill of being attentive to
+                                    details to create well-structured websites
+                                    by paying attention to their smallest parts
+                                </p>
+                            </div>
+                        </div>
+                        <div className='card'>
+                            <div className='top-wrapper'>
+                                <h6>03</h6>
+                                <BsBoxArrowUpRight className='arrow-icon' />
+                            </div>
+
+                            <h5>About</h5>
+                            <div className='content'>
+                                <p>
+                                    On top of that I am a very ambitious person
+                                    who is willing to learn new technologies and
+                                    regularly improve my skills
+                                </p>
+                                <p>
+                                    While developing websites I think critically
+                                    and I know how to overcome potential
+                                    difficulties
+                                </p>
+                            </div>
+                        </div>
+                        <div className='card'>
+                            <div className='top-wrapper'>
+                                <h6>04</h6>
+                                <BsBoxArrowUpRight className='arrow-icon' />
+                            </div>
+
+                            <h5>Me</h5>
+                            <div className='content'>
+                                <p>
+                                    I have practical knwoledge of HTML, CSS,
+                                    SCSS, RWD, GIT, JS, React, Next.JS, React
+                                    Router & Redux Toolkit and I'm familiar with
+                                    Bootstrap, MUI, TypeScript, jQuery
+                                </p>
+                            </div>
+                        </div>
+                    </article>
                 </div>
             </div>
-
+            {/*//! Technologies Slider */}
             <div className='technologies-slider'>
                 <div class='slider-items'>
-                    {technologies.map(({ name }) => (
+                    {technologiesSlider.map(({ name }) => (
                         <Image
                             src={`/technologies/${name}.png`}
-                            width={150}
-                            height={150}
+                            width={375}
+                            height={375}
                             alt='technology thumbnail'
                         />
                     ))}
                 </div>
 
                 <div aria-hidden='true' class='slider-items'>
-                    {technologies.map(({ name }) => (
+                    {technologiesSlider.map(({ name }) => (
                         <Image
                             src={`/technologies/${name}.png`}
-                            width={150}
-                            height={150}
+                            width={375}
+                            height={375}
                             alt='technology thumbnail'
                         />
                     ))}
                 </div>
                 <div class='mask'></div>
+            </div>
+            <div className='skills-showcase-wrapper'>
+                <h5>My main skills</h5>
+                <aside>
+                    {technologies.map(({ name, backgroundColor, color }) => (
+                        <div className='button'>
+                            <p className='primary'>{name}</p>
+                            <div className='secondary'>
+                                <p style={{ color }}>{name}</p>
+                                <div style={{ backgroundColor }} />
+                            </div>
+                        </div>
+                    ))}
+                </aside>
             </div>
         </section>
     );

@@ -8,7 +8,11 @@ import { IoMailOutline as MailIcon } from 'react-icons/io5';
 import { MdOutlineDownloading as DownloadIcon } from 'react-icons/md';
 function Contact() {
     return (
-        <section className='contact_section' id='contact'>
+        <section
+            className='contact_section section'
+            id='contact'
+            data-bgcolor='#FFF'
+        >
             <article>
                 <p>Feel free to</p>
                 <h2>Contact</h2>
@@ -16,18 +20,27 @@ function Contact() {
             </article>
 
             <div className='links-wrapper'>
-                <Link href='mailto:hubertlepsky@gmail.com' className='link'>
+                <Link href='tel:+48697819866' className='link'>
                     PHONE <Arrow className='arrow-icon' />
                     <PhoneIcon className='background-icon' />
+                    <p>(+48) 697 819 866</p>
                 </Link>
 
-                <button>
-                    Download CV <DownloadIcon className='icon' />
-                </button>
+                <a
+                    href='CV_HŁ.pdf'
+                    download='Hubert Łepski CV.pdf'
+                    target='_blank'
+                    rel='noopener noreferrer'
+                >
+                    <button>
+                        Download CV <DownloadIcon className='icon' />
+                    </button>
+                </a>
 
-                <Link href='tel:+48697819866' className='link'>
+                <Link href='mailto:hubertlepsky@gmail.com' className='link'>
                     E-MAIL <Arrow className='arrow-icon' />
                     <MailIcon className='background-icon' />
+                    <p>hubertlepsky@gmail.com</p>
                 </Link>
             </div>
         </section>

@@ -12,6 +12,8 @@ import AboutParallax from '@/Components/AboutParallax';
 //import LocomotiveScroll from 'locomotive-scroll';
 import Lenis from 'lenis';
 import { AnimatePresence } from 'framer-motion';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 
 export default function Home() {
     const [isLoading, setIsLoading] = useState(true);
@@ -39,6 +41,46 @@ export default function Home() {
                 window.scrollTo(0, 0);
             }, 2300);
         })();
+    }, []);
+
+    useEffect(() => {
+        gsap.registerPlugin(ScrollTrigger);
+        const sections = gsap.utils.toArray('.section');
+
+        const switchColor = (color) => {
+            gsap.to(document.body, {
+                duration: 0.4,
+                ease: 'power1.inOut',
+                backgroundColor: color,
+                overwrite: 'auto',
+            });
+        };
+
+        sections.forEach((section, i) => {
+            const color = section.dataset.bgcolor;
+            //get prev section color or set  kolor czarny
+            const previousColor = sections[i - 1]
+                ? sections[i - 1].dataset.bgcolor
+                : '#000';
+
+            ScrollTrigger.create({
+                trigger: section,
+                start: 'top center',
+                end: 'bottom top',
+                onEnter: () => switchColor(color),
+                onLeave: () => i === sections.length - 1 && switchColor('#000'),
+                onEnterBack: () =>
+                    i === sections.length - 1 && switchColor(color),
+                onLeaveBack: () => switchColor(previousColor),
+                //markers: { indent: 135 * i },
+                id: i + 1,
+            });
+        });
+
+        return () => {
+            // Usuń wszystkie instancje ScrollTrigger po unmount
+            ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+        };
     }, []);
 
     return (
