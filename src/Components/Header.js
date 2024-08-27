@@ -79,13 +79,20 @@ function Header() {
                         Contact
                     </Link>
 
-                    <div className='header_button'>
-                        <p className='primary'>GET CV</p>
-                        <div className='secondary'>
-                            <DownloadIcon />
+                    <a
+                        href='CV_HŁ.pdf'
+                        download='Hubert Łepski CV.pdf'
+                        target='_blank'
+                        rel='noopener noreferrer'
+                    >
+                        <div className='header_button'>
+                            <p className='primary'>GET CV</p>
+                            <div className='secondary'>
+                                <DownloadIcon />
+                            </div>
+                            <div className='rounded' />
                         </div>
-                        <div className='rounded' />
-                    </div>
+                    </a>
                 </ul>
             </nav>
         </header>

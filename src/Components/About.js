@@ -1,10 +1,9 @@
 'use client';
-import { useInView, motion, color } from 'framer-motion';
-import Image from 'next/image';
 import React, { useRef } from 'react';
-
-import { FaLocationArrow } from 'react-icons/fa6';
+import Image from 'next/image';
+import { motion, useInView, useScroll, useTransform } from 'framer-motion';
 import { BsBoxArrowUpRight } from 'react-icons/bs';
+
 function About() {
     const technologiesSlider = [
         { name: 'html' },
@@ -90,6 +89,18 @@ function About() {
     const description = useRef(null);
     const isInView = useInView(description);
 
+    const cardsContainer = useRef(null);
+    const { scrollYProgress } = useScroll({
+        target: cardsContainer,
+        offset: ['start end', 'end start'],
+    });
+
+    const scrollParalax = useTransform(scrollYProgress, [0, 1], [300, -50]);
+    const scrollParalaxFast = useTransform(
+        scrollYProgress,
+        [0, 1],
+        [375, -100]
+    );
     return (
         <section
             data-bgcolor='#fff'
@@ -115,8 +126,11 @@ function About() {
                         })}
                     </p>
 
-                    <article className='cards-wrapper'>
-                        <div className='card'>
+                    <article className='cards-wrapper' ref={cardsContainer}>
+                        <motion.div
+                            className='card'
+                            style={{ y: scrollParalaxFast }}
+                        >
                             <div className='top-wrapper'>
                                 <h6>01</h6>
                                 <BsBoxArrowUpRight className='arrow-icon' />
@@ -132,8 +146,11 @@ function About() {
                                     design-related problems
                                 </p>
                             </div>
-                        </div>
-                        <div className='card'>
+                        </motion.div>
+                        <motion.div
+                            className='card'
+                            style={{ y: scrollParalax }}
+                        >
                             <div className='top-wrapper'>
                                 <h6>02</h6>
                                 <BsBoxArrowUpRight className='arrow-icon' />
@@ -152,8 +169,11 @@ function About() {
                                     by paying attention to their smallest parts
                                 </p>
                             </div>
-                        </div>
-                        <div className='card'>
+                        </motion.div>
+                        <motion.div
+                            className='card'
+                            style={{ y: scrollParalax }}
+                        >
                             <div className='top-wrapper'>
                                 <h6>03</h6>
                                 <BsBoxArrowUpRight className='arrow-icon' />
@@ -172,8 +192,11 @@ function About() {
                                     difficulties
                                 </p>
                             </div>
-                        </div>
-                        <div className='card'>
+                        </motion.div>
+                        <motion.div
+                            className='card'
+                            style={{ y: scrollParalax }}
+                        >
                             <div className='top-wrapper'>
                                 <h6>04</h6>
                                 <BsBoxArrowUpRight className='arrow-icon' />
@@ -188,7 +211,7 @@ function About() {
                                     Bootstrap, MUI, TypeScript, jQuery
                                 </p>
                             </div>
-                        </div>
+                        </motion.div>
                     </article>
                 </div>
             </div>

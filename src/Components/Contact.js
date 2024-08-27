@@ -1,22 +1,39 @@
 import Link from 'next/link';
-import React from 'react';
+import React, { useRef } from 'react';
 import { HiOutlineArrowUpRight as Arrow } from 'react-icons/hi2';
 import { CgPhone as PhoneIcon1 } from 'react-icons/cg';
 import { IoIosMail as MailIcon1 } from 'react-icons/io';
 import { LiaPhoneVolumeSolid as PhoneIcon } from 'react-icons/lia';
 import { IoMailOutline as MailIcon } from 'react-icons/io5';
 import { MdOutlineDownloading as DownloadIcon } from 'react-icons/md';
+
+import { motion, useScroll, useTransform } from 'framer-motion';
+
 function Contact() {
+    const container = useRef(null);
+    const { scrollYProgress } = useScroll({
+        target: container,
+        offset: ['start end', 'end start'],
+    });
+
+    const scrollParalaxSlow = useTransform(scrollYProgress, [0, 1], [350, -50]);
+    const scrollParalaxFast = useTransform(
+        scrollYProgress,
+        [0, 1],
+        [450, -100]
+    );
     return (
         <section
             className='contact_section section'
             id='contact'
             data-bgcolor='#FFF'
         >
-            <article>
-                <p>Feel free to</p>
-                <h2>Contact</h2>
-                <p>me</p>
+            <article ref={container}>
+                <motion.p style={{ y: scrollParalaxSlow }}>
+                    Feel free to
+                </motion.p>
+                <motion.h2 style={{ y: scrollParalaxFast }}>Contact</motion.h2>
+                <motion.p style={{ y: scrollParalaxSlow }}>me</motion.p>
             </article>
 
             <div className='links-wrapper'>

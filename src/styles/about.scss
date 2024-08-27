@@ -1,5 +1,5 @@
 .aboutMe-section {
-    padding: 17.5vh 0 5vh;
+    padding: 17.5vh 0 7.5vh;
     width: 100%;
     position: relative;
     z-index: 5;
@@ -75,7 +75,7 @@
     }
     .cards-wrapper {
         width: 95%;
-        margin: 15vh auto 12.5vh;
+        margin: 10vh auto 12.5vh;
         display: flex;
         flex-direction: row;
         justify-content: space-between;
@@ -85,16 +85,11 @@
             height: fit-content;
             border-radius: 30px;
             background-color: rgba(0, 0, 0, 0.975);
+            background-image: linear-gradient(to right top, #000000, #090909, #111111, #161616, #1b1b1b, #1b1b1b, #1b1b1b, #1b1b1b, #161616, #111111, #090909, #000000);
             backdrop-filter: blur(10px);
             color: beige;
             padding-bottom: 2.5%;
             transform-origin: left top;
-            transition: .6s ease-out;
-            &:hover {
-                transition: .4s ease-in;
-                rotate: 0deg !important;
-                transform: translate(0%, 0%) !important;
-            }
             h5 {
                 width: 82.5%;
                 font-size: 2.25rem;
@@ -144,7 +139,8 @@
                 }
             }
             &:nth-of-type(2) {
-                background-color: #D7FE63;
+                //background-color: #D7FE63;
+                background-image: linear-gradient(to right top, #92b628, #9ac325, #a3d121, #abde1c, #b3ec14, #b3ec14, #b3ec14, #b3ec14, #abde1c, #a3d121, #9ac325, #92b628);
                 transform: translate(-6%, -8%);
                 rotate: -2deg;
                 color: #000;
@@ -164,12 +160,13 @@
                 background-color: rgba(255, 255, 255, 0.75);
                 border: 1px solid rgb(200, 200, 200);
                 background-color: rgba(0, 0, 139, 0.875);
+                background-image: linear-gradient(to right top, #00008b, #010480, #040775, #060a6a, #090b5f, #090b5f, #090b5f, #090b5f, #060a6a, #040775, #010480, #00008b);
                 color: #FFF;
                 rotate: -1deg;
                 transform: translateY(-5%);
                 h6 {
                     color: #fff;
-                    background-color: rgb(0, 0, 100);
+                    background-color: rgb(0, 0, 250);
                 }
             }
         }

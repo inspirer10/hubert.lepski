@@ -1,101 +1,96 @@
-import React, { useEffect } from 'react';
-import { motion } from 'framer-motion';
+import React, { useEffect, useRef } from 'react';
+import { motion, useScroll, useTransform } from 'framer-motion';
 import { BsMouse3 } from 'react-icons/bs';
 
 function Introduction() {
+    const container = useRef(null);
+    const { scrollYProgress } = useScroll({
+        target: container,
+        offset: ['start end', 'end start'],
+    });
+
+    const scrollParalax = useTransform(scrollYProgress, [0, 1], [200, -200]);
+    const scrollParalaxSlow = useTransform(scrollYProgress, [0, 1], [75, -75]);
+
+    const canvasRef = useRef(null);
+    //stars canvas
     useEffect(() => {
-        const canvas = document.getElementById('animated-background');
+        const canvas = canvasRef.current;
         const ctx = canvas.getContext('2d');
 
-        // Ustawienia canvas
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
-
-        const colors = [
-            'rgba(255, 0, 255, 1)',
-            '#ff00e1',
-            'rgba(0, 255, 255, 1)',
-            '#3300ff',
-            'rgba(0,0,255, 1)',
-            '#1100ff',
-        ];
-
-        const gradients = [];
-
-        function createGradients() {
-            for (let i = 0; i < 6; i++) {
-                const gradient = {
-                    x: Math.random() * canvas.width,
-                    y: Math.random() * canvas.height,
-                    radius: (Math.random() * canvas.width) / 2,
-                    color: colors[i],
-                    speedX: Math.random() * 2 - 1, // Prędkość pozioma
-                    speedY: Math.random() * 2 - 1, // Prędkość pionowa
-                };
-                gradients.push(gradient);
-            }
-        }
-
-        function draw() {
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-            gradients.forEach((gradient) => {
-                const radialGradient = ctx.createRadialGradient(
-                    gradient.x,
-                    gradient.y,
-                    0,
-                    gradient.x,
-                    gradient.y,
-                    gradient.radius
-                );
-
-                radialGradient.addColorStop(0, gradient.color);
-                radialGradient.addColorStop(1, 'rgba(255, 255, 255, 0)');
-
-                ctx.fillStyle = radialGradient;
-                ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-                // Aktualizacja pozycji dla animacji ruchu
-                gradient.x += gradient.speedX;
-                gradient.y += gradient.speedY;
-
-                // Odbijanie się od krawędzi
-                if (gradient.x <= 0 || gradient.x >= canvas.width)
-                    gradient.speedX *= -1;
-                if (gradient.y <= 0 || gradient.y >= canvas.height)
-                    gradient.speedY *= -1;
-            });
-
-            requestAnimationFrame(draw);
-        }
-
-        createGradients();
-        draw();
-
-        // Obsługa zmiany rozmiaru okna
         function resizeCanvas() {
             canvas.width = window.innerWidth;
             canvas.height = window.innerHeight;
+            drawStars(); // Ponowne rysowanie gwiazd po zmianie rozmiaru
         }
 
-        window.addEventListener('resize', resizeCanvas);
+        let debounceTimer;
+        const handleResize = () => {
+            clearTimeout(debounceTimer);
+            debounceTimer = setTimeout(resizeCanvas, 200);
+        };
 
-        // Czyszczenie efektu po demontażu komponentu
-        return () => window.removeEventListener('resize', resizeCanvas);
+        window.addEventListener('resize', handleResize);
+
+        function random(min, max) {
+            return min + Math.random() * (max + 1 - min);
+        }
+
+        const starsArray = [];
+        function createStars() {
+            const canvasSize = canvas.width * canvas.height;
+            const starsFraction = canvasSize / 1500;
+            for (let i = 0; i < starsFraction; i++) {
+                starsArray.push({
+                    x: random(2, canvas.width - 2),
+                    y: random(2, canvas.height - 2),
+                    alpha: random(0.5, 1),
+                    size: random(0.25, 0.25),
+                });
+            }
+        }
+
+        function drawStars() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            ctx.fillStyle = '#FFF';
+            starsArray.forEach((star) => {
+                ctx.globalAlpha = star.alpha;
+                ctx.fillRect(star.x, star.y, star.size, star.size);
+            });
+        }
+
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        //Add the stars
+        resizeCanvas();
+        createStars();
+        drawStars();
+
+        return () => {
+            window.removeEventListener('resize', handleResize);
+        };
     }, []);
 
     return (
         <motion.section className='introduction--section'>
-            <div id='bg-wrap'>
-                <canvas id='animated-background'></canvas>
+            <canvas ref={canvasRef} className='stars'></canvas>
+
+            <div className='gradients-wrapper '>
+                <div className='gradient gradient-dark'></div>
+                <div className='gradient gradient-light'></div>
+                <div className='gradient gradient-left'></div>
             </div>
 
-            <div className='introduction-wrapper'>
-                <h2>
+            <div className='introduction-wrapper' ref={container}>
+                <motion.h2 style={{ y: scrollParalax }}>
                     Hey, <br /> I’m Hubert
-                </h2>
+                </motion.h2>
 
-                <div className='introduction__description'>
+                <motion.div
+                    className='introduction__description'
+                    style={{ y: scrollParalaxSlow }}
+                >
                     <p>— an open minded, creative, ambitious</p>
                     <div class='container'>
                         <div class='roles'>
@@ -118,7 +113,7 @@ function Introduction() {
                         </div>
                     </div>
                     <p>from Wrocław, Poland</p>
-                </div>
+                </motion.div>
             </div>
             <div className='scroll-Suggestion'>
                 <BsMouse3 className='icon' />
