@@ -54,6 +54,7 @@
             justify-content: flex-end;
             p {
                 font-family: 'Inter', sans-serif;
+                font-family: "SUSE", system-ui;
                 font-size: 2.75rem;
                 font-weight: 500;
                 letter-spacing: 1px;
@@ -84,6 +85,7 @@
                         user-select: none;
                         animation: spinWords 8s infinite forwards;
                         span {
+                            font-family: "SUSE", system-ui;
                             height: 3.5rem;
                             font-weight: 500;
                             margin-right: 9px;
@@ -92,37 +94,6 @@
                             -webkit-text-fill-color: #FFF;
                         }
                     }
-                }
-            }
-        }
-        .description {
-            display: flex;
-            justify-content: center;
-            .body {
-                display: flex;
-                position: relative;
-                p {
-                    //color: #000;
-                    font-family: 'Inter', sans-serif;
-                    font-size: 3rem;
-                    font-weight: 600;
-                    letter-spacing: 0.7px;
-                    text-align: right;
-                    text-wrap: balance;
-                    &:nth-of-type(1) {
-                        span {
-                            margin-right: 4px;
-                        }
-                        .mask {
-                            position: relative;
-                            overflow: hidden;
-                            display: inline-flex;
-                        }
-                    }
-                    /*&:nth-of-type(2) {
-                        //font-size: 18px;
-                        //font-weight: 300;
-                    }*/
                 }
             }
         }
@@ -256,5 +227,19 @@
     }
     100% {
         transform: translate(-35%, 20%);
+    }
+}
+
+@media screen and (max-width:1500px) {
+    .introduction--section {
+        .introduction-wrapper {
+            width: 90%;
+            h2 {
+                font-size: 7.5rem;
+            }
+            .introduction__description p {
+                font-size: 2.5rem;
+            }
+        }
     }
 }

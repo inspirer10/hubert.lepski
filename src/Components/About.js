@@ -83,8 +83,9 @@ function About() {
     /*const phrase =
         'Creative thinker and problem solver are where my mind wanders using my knowldege and passion for design as my medium.';*/
 
-    const phrase =
-        'As a person focused on self-learning and self-improvement, I constantly advance my programming skills, which enables me to come up with creative solutions to various web design-related problems';
+    const phrase = `I am open to both remote work and in-office opportunities worldwide, including relocation. I believe that this kind of flexibility allows me to be a great fit for your team and meet the needs of your organization`;
+
+    const phrase2 = `As a person focused on self-learning and self-improvement, I constantly advance my programming skills, which enables me to come up with creative solutions to various web design-related problems`;
 
     const description = useRef(null);
     const isInView = useInView(description);
@@ -109,22 +110,53 @@ function About() {
         >
             <div className='text-container'>
                 <div className='text-content-wrapper'>
-                    <p ref={description} className='splitted'>
-                        {phrase.split(' ').map((word, index) => {
-                            return (
-                                <span className='mask'>
-                                    <motion.span
-                                        variants={slideUp}
-                                        custom={index}
-                                        animate={isInView ? 'open' : 'closed'}
-                                        key={index}
-                                    >
-                                        {word}
-                                    </motion.span>
-                                </span>
-                            );
-                        })}
-                    </p>
+                    <article className='description_text'>
+                        <p ref={description} className='splitted'>
+                            {phrase.split(' ').map((word, index) => {
+                                return (
+                                    <span className='mask'>
+                                        <motion.span
+                                            variants={slideUp}
+                                            custom={index}
+                                            animate={
+                                                isInView ? 'open' : 'closed'
+                                            }
+                                            key={index}
+                                        >
+                                            {word}
+                                        </motion.span>
+                                    </span>
+                                );
+                            })}
+                        </p>
+
+                        <p ref={description} className='splitted'>
+                            {phrase2.split(' ').map((word, index) => {
+                                return (
+                                    <span className='mask'>
+                                        <motion.span
+                                            variants={slideUp}
+                                            custom={index}
+                                            animate={
+                                                isInView ? 'open' : 'closed'
+                                            }
+                                            key={index}
+                                        >
+                                            {word}
+                                        </motion.span>
+                                    </span>
+                                );
+                            })}
+                        </p>
+
+                        <p className='splitted'>
+                            I am open to various opportunities and eager to
+                            learn new technologies, frameworks, and tools. I am
+                            also willing to relocate to the city where your
+                            office is located. I enjoy meeting new people and
+                            have no issues communicating in English.
+                        </p>
+                    </article>
 
                     <article className='cards-wrapper' ref={cardsContainer}>
                         <motion.div
@@ -136,14 +168,14 @@ function About() {
                                 <BsBoxArrowUpRight className='arrow-icon' />
                             </div>
 
-                            <h5>Some</h5>
+                            <h5>Growth</h5>
                             <div className='content'>
                                 <p>
                                     As a person focused on self-learning and
                                     self-improvement, I constantly advance my
                                     programming skills, which enables me to come
                                     up with creative solutions to various web
-                                    design-related problems
+                                    design-related problems.
                                 </p>
                             </div>
                         </motion.div>
@@ -156,12 +188,12 @@ function About() {
                                 <BsBoxArrowUpRight className='arrow-icon' />
                             </div>
 
-                            <h5>Info</h5>
+                            <h5>Teamwork</h5>
                             <div className='content'>
                                 <p>
-                                    Since I like discussing other people's ideas
-                                    and suggesting my own solutions, I consider
-                                    myself as a good team player
+                                    I enjoy discussing other people's ideas and
+                                    suggesting my own solutions, which makes me
+                                    an effective team player.
                                 </p>
                                 <p>
                                     I mastered the skill of being attentive to
@@ -179,7 +211,7 @@ function About() {
                                 <BsBoxArrowUpRight className='arrow-icon' />
                             </div>
 
-                            <h5>About</h5>
+                            <h5>Adaptability</h5>
                             <div className='content'>
                                 <p>
                                     On top of that I am a very ambitious person
@@ -202,13 +234,14 @@ function About() {
                                 <BsBoxArrowUpRight className='arrow-icon' />
                             </div>
 
-                            <h5>Me</h5>
+                            <h5>Skills</h5>
                             <div className='content'>
                                 <p>
                                     I have practical knwoledge of HTML, CSS,
                                     SCSS, RWD, GIT, JS, React, Next.JS, React
-                                    Router & Redux Toolkit and I'm familiar with
-                                    Bootstrap, MUI, TypeScript, jQuery
+                                    Router & Redux Toolkit and on top of that
+                                    I'm familiar with Tailwind, Bootstrap, MUI,
+                                    TypeScript, jQuery
                                 </p>
                             </div>
                         </motion.div>

@@ -101,12 +101,12 @@ function Projects() {
         },
 
         {
-            name: 'Cars Rental',
-            icon: '🚗',
-            color: 'linear-gradient(to right top, #ffffff, #e6e2ff, #cbc6ff, #adabff, #8a91ff, #7886ff, #637bff, #4870ff, #4870ff, #4870ff, #4870ff, #4870ff)',
-            src: 'cars-rentalScroll.jpg',
-            url: 'https://cars-rental-inspirer10.vercel.app/',
-            id: 15,
+            name: 'Kanban Board',
+            icon: '📋',
+            color: 'linear-gradient(to right top, #090752, #fff)',
+            src: 'kanban-scroll.jpg',
+            url: 'https://draggable-kanban-board-topaz.vercel.app/',
+            id: 23,
         },
 
         {
@@ -128,12 +128,39 @@ function Projects() {
         },
 
         {
+            name: 'Cars Rental',
+            icon: '🚗',
+            color: 'linear-gradient(to right top, #ffffff, #e6e2ff, #cbc6ff, #adabff, #8a91ff, #7886ff, #637bff, #4870ff, #4870ff, #4870ff, #4870ff, #4870ff)',
+            src: 'cars-rentalScroll.jpg',
+            url: 'https://cars-rental-inspirer10.vercel.app/',
+            id: 15,
+        },
+
+        {
             name: 'Fast Food',
             icon: '🍔',
             color: 'linear-gradient(to right top, #000000, #331019, #620f24, #920728, #c20023, #c20023, #c20023, #c20023, #920728, #620f24, #331019, #000000)',
             src: 'fastFood-scroll.jpg',
             url: 'https://fast-food-taupe.vercel.app/',
             id: 9,
+        },
+
+        {
+            name: 'Aura Living',
+            icon: '🪑',
+            color: 'linear-gradient(to right top, #ffa600e0, #cecece)',
+            src: 'auraLiving-scroll.jpg',
+            url: 'https://aura-living.vercel.app/',
+            id: 22,
+        },
+
+        {
+            name: 'Pizza Restaurant',
+            icon: '🍕',
+            color: 'linear-gradient(to right top, #ff0000, #ffee00)',
+            src: 'pizzaRestaurant-Scroll.jpg',
+            url: 'https://inspirer10.github.io/restaurant-page/',
+            id: 17,
         },
 
         {
@@ -146,15 +173,6 @@ function Projects() {
         },
 
         {
-            name: 'Tic Tac Toe',
-            icon: '🎲',
-            color: 'linear-gradient(to right top, #58FF00, #241583)',
-            src: 'ticTacToe-scroll.png',
-            url: 'https://inspirer10.github.io/TicTacToe/',
-            id: 16,
-        },
-
-        {
             name: 'Feed India',
             icon: '🥘',
             color: 'linear-gradient(to right, #0d1803, #0d1803)',
@@ -164,12 +182,12 @@ function Projects() {
         },
 
         {
-            name: 'Pizza Restaurant',
-            icon: '🍕',
-            color: 'linear-gradient(to right top, #ff0000, #ffee00)',
-            src: 'pizzaRestaurant-Scroll.jpg',
-            url: 'https://inspirer10.github.io/restaurant-page/',
-            id: 17,
+            name: 'Tic Tac Toe',
+            icon: '🎲',
+            color: 'linear-gradient(to right top, #58FF00, #241583)',
+            src: 'ticTacToe-scroll.png',
+            url: 'https://inspirer10.github.io/TicTacToe/',
+            id: 16,
         },
 
         {
