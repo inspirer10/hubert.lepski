@@ -42,7 +42,6 @@
     font-style: normal;
 }
 
-//!TEST FONTS
 @import url('https://fonts.googleapis.com/css2?family=MuseoModerno:ital,wght@0,100..900;1,100..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=SUSE:wght@100..800&display=swap');
 * {
@@ -122,29 +121,23 @@ img {
     transform: scale(0.001);
 }
 
-#cursor.darck {
+#cursor.dark {
     background-color: white;
 }
 
-#cursor.darck.active {
+#cursor.dark.active {
     opacity: 1;
     transform: scale(1);
 }
 
-#aura.darck {
+#aura.dark {
     border: 1px solid rgba(255, 255, 255, 0.2);
     background-color: rgba(255, 255, 255, 0.027);
     transform: translate(5px, 5px);
 }
 
-#aura.darck.active {
+#aura.dark.active {
     border: 1px solid rgba(255, 255, 255, 0.2);
     background-color: rgba(255, 255, 255, 0.027);
     opacity: 1;
-}
-
-.flex-center {
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }

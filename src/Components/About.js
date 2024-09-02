@@ -80,12 +80,28 @@ function About() {
         },
     };
 
-    /*const phrase =
-        'Creative thinker and problem solver are where my mind wanders using my knowldege and passion for design as my medium.';*/
+    /*NOTE
+    I am open to both remote work and in-office opportunities worldwide, including relocation. I believe that this kind of flexibility allows me to be a great fit for your team and meet the needs of your organization
 
-    const phrase = `I am open to both remote work and in-office opportunities worldwide, including relocation. I believe that this kind of flexibility allows me to be a great fit for your team and meet the needs of your organization`;
+    */
 
-    const phrase2 = `As a person focused on self-learning and self-improvement, I constantly advance my programming skills, which enables me to come up with creative solutions to various web design-related problems`;
+    const phrase = `I am open to various opportunities and eager to learn new technologies, frameworks, and tools. I am flexible in working both remotely and in-office, and willing to relocate as needed`;
+
+    const phrase2 = `I enjoy meeting new people and have no issues communicating in English, allowing me to adapt easily to different work environments and contribute effectively to diverse teams`;
+
+    const phrase3 = `I am a creative developer with a strong can-do attitude who loves solving problems and finding new solutions. I learn quickly, work well in a team, and manage my time effectively`;
+
+    const phrase4 = `I pay attention to details, communicate clearly, and adapt easily to new challenges. I'm always eager to learn about new technologies and enjoy suggesting ideas to others`;
+
+    /*
+        Creative thinker and problem solver are where my mind wanders using my knowldege and passion for design as my medium.
+
+        As a dedicated and passionate web developer, I am always looking for new opportunities to expand my skills and take on challenging projects
+
+
+        As a highly determined and fast-learning developer, I am a creative thinker and problem solver with great communication skills, and the ability to easily adapt to new environments and challenges
+
+ */
 
     const description = useRef(null);
     const isInView = useInView(description);
@@ -109,175 +125,197 @@ function About() {
             id='about'
         >
             <div className='text-container'>
-                <div className='text-content-wrapper'>
-                    <article className='description_text'>
-                        <p ref={description} className='splitted'>
-                            {phrase.split(' ').map((word, index) => {
-                                return (
-                                    <span className='mask'>
-                                        <motion.span
-                                            variants={slideUp}
-                                            custom={index}
-                                            animate={
-                                                isInView ? 'open' : 'closed'
-                                            }
-                                            key={index}
-                                        >
-                                            {word}
-                                        </motion.span>
-                                    </span>
-                                );
-                            })}
-                        </p>
+                {/* <div className='text-content-wrapper'></div>*/}
+                <article className='description_text' ref={description}>
+                    <p className='splitted'>
+                        {phrase.split(' ').map((word, index) => {
+                            return (
+                                <span className='mask' key={index + word}>
+                                    <motion.span
+                                        variants={slideUp}
+                                        custom={index}
+                                        animate={isInView ? 'open' : 'closed'}
+                                        key={index}
+                                    >
+                                        {word}
+                                    </motion.span>
+                                </span>
+                            );
+                        })}
+                    </p>
+                    <p className='splitted'>
+                        {phrase2.split(' ').map((word, index) => {
+                            return (
+                                <span className='mask' key={index + word}>
+                                    <motion.span
+                                        variants={slideUp}
+                                        custom={index}
+                                        animate={isInView ? 'open' : 'closed'}
+                                        key={index}
+                                    >
+                                        {word}
+                                    </motion.span>
+                                </span>
+                            );
+                        })}
+                    </p>
+                    <p className='splitted'>
+                        {phrase3.split(' ').map((word, index) => {
+                            return (
+                                <span className='mask' key={index + word}>
+                                    <motion.span
+                                        variants={slideUp}
+                                        custom={index}
+                                        animate={isInView ? 'open' : 'closed'}
+                                        key={index}
+                                    >
+                                        {word}
+                                    </motion.span>
+                                </span>
+                            );
+                        })}
+                    </p>
+                    <p className='splitted'>
+                        {phrase4.split(' ').map((word, index) => {
+                            return (
+                                <span className='mask' key={index + word}>
+                                    <motion.span
+                                        variants={slideUp}
+                                        custom={index}
+                                        animate={isInView ? 'open' : 'closed'}
+                                        key={index}
+                                    >
+                                        {word}
+                                    </motion.span>
+                                </span>
+                            );
+                        })}
+                    </p>
+                </article>
 
-                        <p ref={description} className='splitted'>
-                            {phrase2.split(' ').map((word, index) => {
-                                return (
-                                    <span className='mask'>
-                                        <motion.span
-                                            variants={slideUp}
-                                            custom={index}
-                                            animate={
-                                                isInView ? 'open' : 'closed'
-                                            }
-                                            key={index}
-                                        >
-                                            {word}
-                                        </motion.span>
-                                    </span>
-                                );
-                            })}
-                        </p>
+                <article className='cards-wrapper' ref={cardsContainer}>
+                    <motion.div
+                        className='card'
+                        style={{ y: scrollParalaxFast }}
+                    >
+                        <div className='top-wrapper'>
+                            <h6>01</h6>
+                            <BsBoxArrowUpRight className='arrow-icon' />
+                        </div>
 
-                        <p className='splitted'>
-                            I am open to various opportunities and eager to
-                            learn new technologies, frameworks, and tools. I am
-                            also willing to relocate to the city where your
-                            office is located. I enjoy meeting new people and
-                            have no issues communicating in English.
-                        </p>
-                    </article>
+                        <h5>Growth</h5>
+                        <div className='content'>
+                            <p>
+                                As a person focused on self-improvement, I
+                                constantly advance my programming skills, which
+                                enables me to come up with creative solutions to
+                                various web design-related problems
+                            </p>
 
-                    <article className='cards-wrapper' ref={cardsContainer}>
-                        <motion.div
-                            className='card'
-                            style={{ y: scrollParalaxFast }}
-                        >
-                            <div className='top-wrapper'>
-                                <h6>01</h6>
-                                <BsBoxArrowUpRight className='arrow-icon' />
-                            </div>
+                            <p>
+                                As a passionate web developer, I am always
+                                looking for new opportunities to expand my
+                                skills and take on challenging projects.
+                            </p>
+                        </div>
+                    </motion.div>
+                    <motion.div className='card' style={{ y: scrollParalax }}>
+                        <div className='top-wrapper'>
+                            <h6>02</h6>
+                            <BsBoxArrowUpRight className='arrow-icon' />
+                        </div>
 
-                            <h5>Growth</h5>
-                            <div className='content'>
-                                <p>
-                                    As a person focused on self-learning and
-                                    self-improvement, I constantly advance my
-                                    programming skills, which enables me to come
-                                    up with creative solutions to various web
-                                    design-related problems.
-                                </p>
-                            </div>
-                        </motion.div>
-                        <motion.div
-                            className='card'
-                            style={{ y: scrollParalax }}
-                        >
-                            <div className='top-wrapper'>
-                                <h6>02</h6>
-                                <BsBoxArrowUpRight className='arrow-icon' />
-                            </div>
+                        <h5>Teamwork</h5>
+                        <div className='content'>
+                            <p>
+                                I have mastered the skill of paying attention to
+                                details. I treat each component of a site with
+                                care to ensure the highest quality and
+                                functionality of the final product
+                            </p>
 
-                            <h5>Teamwork</h5>
-                            <div className='content'>
-                                <p>
-                                    I enjoy discussing other people's ideas and
-                                    suggesting my own solutions, which makes me
-                                    an effective team player.
-                                </p>
-                                <p>
-                                    I mastered the skill of being attentive to
-                                    details to create well-structured websites
-                                    by paying attention to their smallest parts
-                                </p>
-                            </div>
-                        </motion.div>
-                        <motion.div
-                            className='card'
-                            style={{ y: scrollParalax }}
-                        >
-                            <div className='top-wrapper'>
-                                <h6>03</h6>
-                                <BsBoxArrowUpRight className='arrow-icon' />
-                            </div>
+                            <p>
+                                I enjoy discussing other people's ideas and
+                                suggesting my own solutions, which makes me an
+                                effective team player
+                            </p>
+                        </div>
+                    </motion.div>
+                    <motion.div className='card' style={{ y: scrollParalax }}>
+                        <div className='top-wrapper'>
+                            <h6>03</h6>
+                            <BsBoxArrowUpRight className='arrow-icon' />
+                        </div>
 
-                            <h5>Adaptability</h5>
-                            <div className='content'>
-                                <p>
-                                    On top of that I am a very ambitious person
-                                    who is willing to learn new technologies and
-                                    regularly improve my skills
-                                </p>
-                                <p>
-                                    While developing websites I think critically
-                                    and I know how to overcome potential
-                                    difficulties
-                                </p>
-                            </div>
-                        </motion.div>
-                        <motion.div
-                            className='card'
-                            style={{ y: scrollParalax }}
-                        >
-                            <div className='top-wrapper'>
-                                <h6>04</h6>
-                                <BsBoxArrowUpRight className='arrow-icon' />
-                            </div>
+                        <h5>Adaptability</h5>
+                        <div className='content'>
+                            <p>
+                                I'm comfortable working both remotely and
+                                in-office, and I'm open to relocating as needed.
+                                This flexibility helps me adapt to various work
+                                settings and contribute effectively to diverse
+                                teams
+                            </p>
+                            <p>
+                                My proactive approach and eagerness to learn
+                                make me a great fit to any organization looking
+                                for a versatile team member
+                            </p>
+                            {/* <p>seeking a dynamic team member.</p> */}
+                        </div>
+                    </motion.div>
+                    <motion.div className='card' style={{ y: scrollParalax }}>
+                        <div className='top-wrapper'>
+                            <h6>04</h6>
+                            <BsBoxArrowUpRight className='arrow-icon' />
+                        </div>
 
-                            <h5>Skills</h5>
-                            <div className='content'>
-                                <p>
-                                    I have practical knwoledge of HTML, CSS,
-                                    SCSS, RWD, GIT, JS, React, Next.JS, React
-                                    Router & Redux Toolkit and on top of that
-                                    I'm familiar with Tailwind, Bootstrap, MUI,
-                                    TypeScript, jQuery
-                                </p>
-                            </div>
-                        </motion.div>
-                    </article>
-                </div>
+                        <h5>Skills</h5>
+                        <div className='content'>
+                            <p>
+                                Proficient in HTML, CSS, SCSS, RWD, Git,
+                                JavaScript, React, Next.js, React Router, and
+                                Redux Toolkit. I am also familiar with Tailwind,
+                                Bootstrap, MUI, Node, Express, TypeScript,
+                                MongoDB and jQuery, which enables me to handle a
+                                wide range of development tasks
+                            </p>
+                        </div>
+                    </motion.div>
+                </article>
             </div>
             {/*//! Technologies Slider */}
             <div className='technologies-slider'>
-                <div class='slider-items'>
-                    {technologiesSlider.map(({ name }) => (
+                <div className='slider-items'>
+                    {technologiesSlider.map(({ name }, index) => (
                         <Image
                             src={`/technologies/${name}.png`}
                             width={375}
                             height={375}
                             alt='technology thumbnail'
+                            key={index}
                         />
                     ))}
                 </div>
 
-                <div aria-hidden='true' class='slider-items'>
-                    {technologiesSlider.map(({ name }) => (
+                <div aria-hidden='true' className='slider-items'>
+                    {technologiesSlider.map(({ name }, index) => (
                         <Image
                             src={`/technologies/${name}.png`}
                             width={375}
                             height={375}
                             alt='technology thumbnail'
+                            key={index}
                         />
                     ))}
                 </div>
-                <div class='mask'></div>
+                <div className='mask'></div>
             </div>
             <div className='skills-showcase-wrapper'>
                 <h5>My main skills</h5>
                 <aside>
                     {technologies.map(({ name, backgroundColor, color }) => (
-                        <div className='button'>
+                        <div className='button' key={name}>
                             <p className='primary'>{name}</p>
                             <div className='secondary'>
                                 <p style={{ color }}>{name}</p>

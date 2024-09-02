@@ -4,8 +4,6 @@ import Image from 'next/image';
 import SingleProject from './SingleProject';
 import ProjectsModal from './ProjectsModal';
 
-//import ProjectsIntroductionParallax from './ProjectsIntroductionParallax';
-
 function Projects() {
     const container = useRef(null);
     //projekty - tablia obiektów
@@ -209,34 +207,34 @@ function Projects() {
     const slider1 = [
         {
             color: '#000',
-            src: '/slider/astraCrypto.png',
+            src: '/slider/astraCrypto.jpg',
         },
         {
             color: '#4C493F',
-            src: '/slider/myHome.png',
+            src: '/slider/myHome.jpg',
         },
         {
             color: '#FFFFFF',
-            src: '/slider/tuscany.png',
+            src: '/slider/tuscany.jpg',
         },
         {
             color: '#000',
-            src: '/slider/musthave.png',
+            src: '/slider/musthave.jpg',
         },
     ];
     const slider2 = [
         {
             color: '#4871FF',
-            src: '/slider/cars.png',
+            src: '/slider/cars.jpg',
         },
         {
             color: '#05070B',
-            src: '/slider/astraNFT.png',
+            src: '/slider/astraNFT.jpg',
         },
         {
             color: '#FFFFFF',
 
-            src: '/slider/car.png',
+            src: '/slider/car.jpg',
         },
         {
             color: '#FEF0DE',
@@ -260,6 +258,7 @@ function Projects() {
                     {slider1.map(({ color, src }, index) => {
                         return (
                             <div
+                                key={index}
                                 className='project'
                                 style={{ backgroundColor: color }}
                             >
@@ -279,6 +278,7 @@ function Projects() {
                     {slider2.map(({ color, src }, index) => {
                         return (
                             <div
+                                key={index}
                                 className='project'
                                 style={{ backgroundColor: color }}
                             >
@@ -305,10 +305,11 @@ function Projects() {
                     <div className='projects-gallery-container'>
                         {projectsData.map((project, i) => (
                             <a
+                                href={project.url}
                                 target='_blank'
                                 rel='noopener noreferrer'
-                                href={project.url}
                                 className='project-link'
+                                key={i}
                             >
                                 <SingleProject
                                     setModal={setModal}

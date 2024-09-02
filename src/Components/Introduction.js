@@ -92,8 +92,8 @@ function Introduction() {
                     style={{ y: scrollParalaxSlow }}
                 >
                     <p>— an open minded, creative, ambitious</p>
-                    <div class='container'>
-                        <div class='roles'>
+                    <div className='container'>
+                        <div className='roles'>
                             <p>
                                 <span className='static-text'>Junior</span> Web
                                 Developer

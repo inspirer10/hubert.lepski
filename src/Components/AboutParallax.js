@@ -151,7 +151,8 @@ function AboutParallax() {
                                 src={src}
                                 style={{ objectFit: fit }}
                                 alt='project thumbnail'
-                                fill
+                                height={550}
+                                width={550}
                             />
                         </div>
                     </motion.div>
