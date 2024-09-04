@@ -270,3 +270,30 @@
         }
     }
 }
+
+//? smartphones
+@media screen and (max-width: 650px) {
+    .introduction--section {
+        .introduction-wrapper {
+            width: 92.5%;
+            flex-direction: column;
+            align-items: center;
+            h2 {
+                font-size: 4.5rem;
+                margin-bottom: 10vh;
+                text-align: left;
+            }
+            .introduction__description {
+                .container {
+                    margin-top: 2.5rem;
+                }
+                p {
+                    text-wrap: balance;
+                    font-size: 2rem;
+                    font-size: 30px;
+                    letter-spacing: 0.5px;
+                }
+            }
+        }
+    }
+}

@@ -1,7 +1,7 @@
 'use client';
 import React, { useRef } from 'react';
 import Image from 'next/image';
-import { motion, useInView, useScroll, useTransform } from 'framer-motion';
+import { motion, useScroll, useTransform } from 'framer-motion';
 import { useCursor } from './CursorContext';
 import { BsBoxArrowUpRight } from 'react-icons/bs';
 
@@ -63,20 +63,6 @@ function About() {
         { name: 'vsc', backgroundColor: '#1F9CEF', color: '#FFF' },
     ];
 
-    const slideUp = {
-        initial: {
-            y: '100%',
-        },
-        open: (i) => ({
-            y: '0%',
-            transition: { duration: 0.75, delay: 0.025 * i },
-        }),
-        closed: {
-            y: '100%',
-            transition: { duration: 0.5 },
-        },
-    };
-
     const opacity = {
         initial: {
             opacity: 0,
@@ -96,7 +82,7 @@ function About() {
 
     */
 
-    const phrase = `I am open to various opportunities and eager to learn new technologies, frameworks, and tools. I am flexible in working both remotely and in-office, and willing to relocate as needed`;
+    const phrase1 = `I am open to various opportunities and eager to learn new technologies, frameworks, and tools. I am flexible in working both remotely and in-office, and willing to relocate as needed`;
 
     const phrase2 = `I enjoy meeting new people and have no issues communicating in English, allowing me to adapt easily to different work environments and contribute effectively to diverse teams`;
 
@@ -113,9 +99,6 @@ function About() {
         As a highly determined and fast-learning developer, I am a creative thinker and problem solver with great communication skills, and the ability to easily adapt to new environments and challenges
 
  */
-
-    const description = useRef(null);
-    const isInView = useInView(description);
 
     const cardsContainer = useRef(null);
     const { scrollYProgress } = useScroll({
@@ -139,70 +122,21 @@ function About() {
         >
             <div className='text-container'>
                 {/* <div className='text-content-wrapper'></div>*/}
-                <article className='description_text' ref={description}>
+
+                <article className='description_text'>
                     <p className='splitted'>
-                        {phrase.split(' ').map((word, index) => {
-                            return (
-                                <span className='mask' key={index + word}>
-                                    <motion.span
-                                        variants={slideUp}
-                                        custom={index}
-                                        animate={isInView ? 'open' : 'closed'}
-                                        key={index}
-                                    >
-                                        {word}
-                                    </motion.span>
-                                </span>
-                            );
-                        })}
+                        <span>{phrase1}</span>
                     </p>
                     <p className='splitted'>
-                        {phrase2.split(' ').map((word, index) => {
-                            return (
-                                <span className='mask' key={index + word}>
-                                    <motion.span
-                                        variants={slideUp}
-                                        custom={index}
-                                        animate={isInView ? 'open' : 'closed'}
-                                        key={index}
-                                    >
-                                        {word}
-                                    </motion.span>
-                                </span>
-                            );
-                        })}
+                        <span>{phrase2}</span>
                     </p>
+
                     <p className='splitted'>
-                        {phrase3.split(' ').map((word, index) => {
-                            return (
-                                <span className='mask' key={index + word}>
-                                    <motion.span
-                                        variants={slideUp}
-                                        custom={index}
-                                        animate={isInView ? 'open' : 'closed'}
-                                        key={index}
-                                    >
-                                        {word}
-                                    </motion.span>
-                                </span>
-                            );
-                        })}
+                        <span>{phrase3}</span>
                     </p>
+
                     <p className='splitted'>
-                        {phrase4.split(' ').map((word, index) => {
-                            return (
-                                <span className='mask' key={index + word}>
-                                    <motion.span
-                                        variants={slideUp}
-                                        custom={index}
-                                        animate={isInView ? 'open' : 'closed'}
-                                        key={index}
-                                    >
-                                        {word}
-                                    </motion.span>
-                                </span>
-                            );
-                        })}
+                        <span>{phrase4}</span>
                     </p>
                 </article>
             </div>

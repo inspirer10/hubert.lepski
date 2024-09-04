@@ -194,3 +194,40 @@ header {
         padding: 14px 30px;
     }
 }
+
+//? smartphones
+@media screen and (max-width: 650px) {
+    body,
+    html {
+        overflow-x: hidden;
+    }
+    header nav {
+        padding: 0.5rem 1vw;
+        .person {
+            .image_text {
+                p {
+                    font-size: 15px;
+                    letter-spacing: 0.7px;
+                }
+                .availability {
+                    font-size: 12px;
+                    letter-spacing: 0.7px;
+                }
+            }
+            .image {
+                margin-right: 0.5rem;
+                height: 5vh;
+                width: 5vh;
+            }
+        }
+        .nav-links {
+            .link {
+                font-size: 15px;
+                margin: 0 0.15rem;
+            }
+            .header_button {
+                display: none;
+            }
+        }
+    }
+}

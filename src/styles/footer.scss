@@ -225,6 +225,75 @@ footer {
                         }
                     }
                 }
+                main {
+                    width: 92.5%;
+                    .footer-links .links-wrapper .footer-link {
+                        margin-left: 1.5rem;
+                        font-size: 18px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+//? smartphones
+@media screen and (max-width: 650px) {
+    footer {
+        height: auto;
+        position: relative;
+        clip-path: none;
+        .footer_content-container {
+            position: relative;
+            height: auto;
+            top: 0;
+            .footer_content-wrapper {
+                position: static;
+                height: auto;
+                article {
+                    flex-direction: column-reverse;
+                    div {
+                        margin-top: 5vh;
+                        .heading {
+                            font-size: 2rem;
+                            span {
+                                font-size: 2rem;
+                            }
+                        }
+                        .subHeading {
+                            font-size: 2rem;
+                            span {
+                                font-size: 2rem;
+                            }
+                        }
+                    }
+                    #footer_svg {
+                        width: 82.5%;
+                        height: 30vh;
+                    }
+                }
+                main {
+                    width: 97.5%;
+                    .footer-links {
+                        justify-content: center;
+                        .links-wrapper {
+                            .footer-link {
+                                font-size: 16px;
+                                margin-left: 0.75rem;
+                            }
+                        }
+                    }
+                    summary {
+                        margin-bottom: 0.75rem;
+                        .info {
+                            font-size: 12.5px;
+                        }
+                        .footer-email-link {
+                            font-size: 15px;
+                            letter-spacing: 0.5px;
+                        }
+                    }
+                }
             }
         }
     }
