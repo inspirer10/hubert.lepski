@@ -14,6 +14,8 @@ import Lenis from 'lenis';
 import { AnimatePresence } from 'framer-motion';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
+import CustomCursor from '@/Components/CustomCursor';
+import { CursorProvider } from '@/Components/CursorContext';
 
 export default function Home() {
     const [isLoading, setIsLoading] = useState(true);
@@ -98,14 +100,15 @@ export default function Home() {
                 <link rel='icon' href='/favicon.png' />
             </Head>
 
-            <>
+            <CursorProvider>
                 <AnimatePresence mode='wait'>
                     {isLoading && <InitialLoading />}
                 </AnimatePresence>
                 <Header />
 
+                <CustomCursor />
                 <Introduction />
-                {/*   <article
+                {/*<article
                     className='bufferBeforeParallax'
                     style={{
                         height: '12.5vh',
@@ -119,7 +122,7 @@ export default function Home() {
                 <Projects />
                 <Contact />
                 <Footer />
-            </>
+            </CursorProvider>
         </>
     );
 }

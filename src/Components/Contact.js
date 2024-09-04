@@ -1,15 +1,22 @@
 import Link from 'next/link';
 import React, { useRef } from 'react';
 import { HiOutlineArrowUpRight as Arrow } from 'react-icons/hi2';
-import { CgPhone as PhoneIcon1 } from 'react-icons/cg';
-import { IoIosMail as MailIcon1 } from 'react-icons/io';
 import { LiaPhoneVolumeSolid as PhoneIcon } from 'react-icons/lia';
 import { IoMailOutline as MailIcon } from 'react-icons/io5';
 import { MdOutlineDownloading as DownloadIcon } from 'react-icons/md';
-
+import { useCursor } from './CursorContext';
 import { motion, useScroll, useTransform } from 'framer-motion';
 
 function Contact() {
+    const { setIsDark } = useCursor();
+
+    const handleMouseEnter = () => {
+        setIsDark(true);
+    };
+
+    const handleMouseLeave = () => {
+        setIsDark(false);
+    };
     const container = useRef(null);
     const { scrollYProgress } = useScroll({
         target: container,
@@ -27,6 +34,8 @@ function Contact() {
             className='contact_section section'
             id='contact'
             data-bgcolor='#FFF'
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
         >
             <article ref={container}>
                 <motion.p style={{ y: scrollParalaxSlow }}>

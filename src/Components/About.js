@@ -2,9 +2,20 @@
 import React, { useRef } from 'react';
 import Image from 'next/image';
 import { motion, useInView, useScroll, useTransform } from 'framer-motion';
+import { useCursor } from './CursorContext';
 import { BsBoxArrowUpRight } from 'react-icons/bs';
 
 function About() {
+    const { setIsDark } = useCursor();
+
+    const handleMouseEnter = () => {
+        setIsDark(true);
+    };
+
+    const handleMouseLeave = () => {
+        setIsDark(false);
+    };
+
     const technologiesSlider = [
         { name: 'html' },
         { name: 'css' },
@@ -116,13 +127,15 @@ function About() {
     const scrollParalaxFast = useTransform(
         scrollYProgress,
         [0, 1],
-        [375, -100]
+        [400, -125]
     );
     return (
         <section
             data-bgcolor='#fff'
             className='aboutMe-section section'
             id='about'
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
         >
             <div className='text-container'>
                 {/* <div className='text-content-wrapper'></div>*/}
@@ -192,98 +205,93 @@ function About() {
                         })}
                     </p>
                 </article>
-
-                <article className='cards-wrapper' ref={cardsContainer}>
-                    <motion.div
-                        className='card'
-                        style={{ y: scrollParalaxFast }}
-                    >
-                        <div className='top-wrapper'>
-                            <h6>01</h6>
-                            <BsBoxArrowUpRight className='arrow-icon' />
-                        </div>
-
-                        <h5>Growth</h5>
-                        <div className='content'>
-                            <p>
-                                As a person focused on self-improvement, I
-                                constantly advance my programming skills, which
-                                enables me to come up with creative solutions to
-                                various web design-related problems
-                            </p>
-
-                            <p>
-                                As a passionate web developer, I am always
-                                looking for new opportunities to expand my
-                                skills and take on challenging projects.
-                            </p>
-                        </div>
-                    </motion.div>
-                    <motion.div className='card' style={{ y: scrollParalax }}>
-                        <div className='top-wrapper'>
-                            <h6>02</h6>
-                            <BsBoxArrowUpRight className='arrow-icon' />
-                        </div>
-
-                        <h5>Teamwork</h5>
-                        <div className='content'>
-                            <p>
-                                I have mastered the skill of paying attention to
-                                details. I treat each component of a site with
-                                care to ensure the highest quality and
-                                functionality of the final product
-                            </p>
-
-                            <p>
-                                I enjoy discussing other people's ideas and
-                                suggesting my own solutions, which makes me an
-                                effective team player
-                            </p>
-                        </div>
-                    </motion.div>
-                    <motion.div className='card' style={{ y: scrollParalax }}>
-                        <div className='top-wrapper'>
-                            <h6>03</h6>
-                            <BsBoxArrowUpRight className='arrow-icon' />
-                        </div>
-
-                        <h5>Adaptability</h5>
-                        <div className='content'>
-                            <p>
-                                I'm comfortable working both remotely and
-                                in-office, and I'm open to relocating as needed.
-                                This flexibility helps me adapt to various work
-                                settings and contribute effectively to diverse
-                                teams
-                            </p>
-                            <p>
-                                My proactive approach and eagerness to learn
-                                make me a great fit to any organization looking
-                                for a versatile team member
-                            </p>
-                            {/* <p>seeking a dynamic team member.</p> */}
-                        </div>
-                    </motion.div>
-                    <motion.div className='card' style={{ y: scrollParalax }}>
-                        <div className='top-wrapper'>
-                            <h6>04</h6>
-                            <BsBoxArrowUpRight className='arrow-icon' />
-                        </div>
-
-                        <h5>Skills</h5>
-                        <div className='content'>
-                            <p>
-                                Proficient in HTML, CSS, SCSS, RWD, Git,
-                                JavaScript, React, Next.js, React Router, and
-                                Redux Toolkit. I am also familiar with Tailwind,
-                                Bootstrap, MUI, Node, Express, TypeScript,
-                                MongoDB and jQuery, which enables me to handle a
-                                wide range of development tasks
-                            </p>
-                        </div>
-                    </motion.div>
-                </article>
             </div>
+            <article className='cards-wrapper' ref={cardsContainer}>
+                <motion.div className='card' style={{ y: scrollParalaxFast }}>
+                    <div className='top-wrapper'>
+                        <h6>01</h6>
+                        <BsBoxArrowUpRight className='arrow-icon' />
+                    </div>
+
+                    <h5>Growth</h5>
+                    <div className='content'>
+                        <p>
+                            As a person focused on self-improvement, I
+                            constantly advance my programming skills, which
+                            enables me to come up with creative solutions to
+                            various web design-related problems
+                        </p>
+
+                        <p>
+                            As a passionate web developer, I am always looking
+                            for new opportunities to expand my skills and take
+                            on challenging projects.
+                        </p>
+                    </div>
+                </motion.div>
+                <motion.div className='card' style={{ y: scrollParalax }}>
+                    <div className='top-wrapper'>
+                        <h6>02</h6>
+                        <BsBoxArrowUpRight className='arrow-icon' />
+                    </div>
+
+                    <h5>Teamwork</h5>
+                    <div className='content'>
+                        <p>
+                            I have mastered the skill of paying attention to
+                            details. I treat each component of a site with care
+                            to ensure the highest quality and functionality of
+                            the final product
+                        </p>
+
+                        <p>
+                            I enjoy discussing other people's ideas and
+                            suggesting my own solutions, which makes me an
+                            effective team player
+                        </p>
+                    </div>
+                </motion.div>
+                <motion.div className='card' style={{ y: scrollParalaxFast }}>
+                    <div className='top-wrapper'>
+                        <h6>03</h6>
+                        <BsBoxArrowUpRight className='arrow-icon' />
+                    </div>
+
+                    <h5>Adaptability</h5>
+                    <div className='content'>
+                        <p>
+                            I'm comfortable working both remotely and in-office,
+                            and I'm open to relocating as needed. This
+                            flexibility helps me adapt to various work settings
+                            and contribute effectively to diverse teams
+                        </p>
+                        <p>
+                            My proactive approach and eagerness to learn make me
+                            a great fit to any organization looking for a
+                            versatile team member
+                        </p>
+                        {/* <p>seeking a dynamic team member.</p> */}
+                    </div>
+                </motion.div>
+                <motion.div className='card' style={{ y: scrollParalax }}>
+                    <div className='top-wrapper'>
+                        <h6>04</h6>
+                        <BsBoxArrowUpRight className='arrow-icon' />
+                    </div>
+
+                    <h5>Skills</h5>
+                    <div className='content'>
+                        <p>
+                            Proficient in HTML, CSS, SCSS, RWD, Git, JavaScript,
+                            React, Next.js, React Router, and Redux Toolkit. I
+                            am also familiar with Tailwind, Bootstrap, MUI,
+                            Node, Express, TypeScript, MongoDB and jQuery, which
+                            enables me to handle a wide range of development
+                            tasks
+                        </p>
+                    </div>
+                </motion.div>
+            </article>
             {/*//! Technologies Slider */}
             <div className='technologies-slider'>
                 <div className='slider-items'>

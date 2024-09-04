@@ -97,6 +97,7 @@
                 pointer-events: none;
                 opacity: 0.075;
                 transition: .175s ease-in-out;
+                pointer-events: none;
             }
             p {
                 font-family: 'SF Pro Display', sans-serif;
@@ -129,13 +130,55 @@
     }
 }
 
-@media screen and (max-width:1500px) {
+//! 1440px LAPTOP
+@media screen and (max-width:1550px) {
     .contact_section {
         .links-wrapper {
             width: 95%;
             .link {
+                font-size: 2.75rem;
                 p {
                     font-size: 2.25rem;
+                }
+            }
+        }
+    }
+}
+
+//? M - laptops
+@media screen and (max-width:1370px) {
+    .contact_section article {
+        p {
+            font-size: 3.5rem;
+        }
+        h2 {
+            font-size: 9rem;
+            line-height: 9.75rem;
+        }
+    }
+}
+
+//?  S - laptops
+@media screen and (max-width:1285px) {
+    .contact_section {
+        article {
+            p {
+                font-size: 3rem;
+            }
+            h2 {
+                font-size: 8rem;
+                line-height: 8.75rem;
+            }
+        }
+        .links-wrapper {
+            width: 97.5%;
+            .link {
+                font-size: 2.25rem;
+                .background-icon {
+                    font-size: 12.5rem;
+                }
+                p {
+                    font-size: 34px;
                 }
             }
         }

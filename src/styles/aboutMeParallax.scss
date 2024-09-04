@@ -114,3 +114,24 @@
         }
     }
 }
+
+@media screen and (max-width:1550px) {
+    .zoom-parallax-container .sticky-div .wrapper .img-container .name-wrapper .brand-name {
+        font-size: 2.75rem;
+        letter-spacing: 1px;
+    }
+}
+
+//? M - laptops
+@media screen and (max-width:1370px) {
+    .zoom-parallax-container .sticky-div .wrapper .img-container .name-wrapper .brand-name {
+        font-size: 2.5rem;
+    }
+}
+
+//?  S - laptops
+@media screen and (max-width:1285px) {
+    .zoom-parallax-container .sticky-div .wrapper .img-container .name-wrapper .brand-name {
+        font-size: 2.25rem;
+    }
+}

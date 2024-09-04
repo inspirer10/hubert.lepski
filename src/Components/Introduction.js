@@ -76,7 +76,7 @@ function Introduction() {
         <motion.section className='introduction--section'>
             <canvas ref={canvasRef} className='stars'></canvas>
 
-            <div className='gradients-wrapper '>
+            <div className='gradients-wrapper'>
                 <div className='gradient gradient-dark'></div>
                 <div className='gradient gradient-light'></div>
                 <div className='gradient gradient-left'></div>

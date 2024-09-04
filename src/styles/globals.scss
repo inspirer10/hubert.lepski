@@ -28,6 +28,8 @@
     font-style: normal;
 }
 
+
+/*
 @font-face {
     font-family: 'SF Pro Display';
     src: url('/font/SF-Pro-Display-Semibold.otf') format('opentype');
@@ -41,6 +43,7 @@
     font-weight: 700;
     font-style: normal;
 }
+*/
 
 @import url('https://fonts.googleapis.com/css2?family=MuseoModerno:ital,wght@0,100..900;1,100..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=SUSE:wght@100..800&display=swap');
@@ -66,6 +69,7 @@ body {
     background-color: #000;
     color: #fff;
     line-height: 1.2222222222;
+    cursor: none;
 }
 
 a {
@@ -83,57 +87,58 @@ img {
 
 #cursor,
 #aura {
-    position: absolute;
+    position: fixed;
     border-radius: 100%;
     transition: transform 0.5s cubic-bezier(0.75, -1.27, 0.3, 2.33), opacity 0.2s cubic-bezier(0.75, -1.27, 0.3, 2.33);
     user-select: none;
     pointer-events: none;
     z-index: 1000;
+    transform: translate(-50%, -50%);
 }
 
 #cursor {
-    width: 8px;
-    height: 8px;
-    background-color: black;
+    width: 9px;
+    height: 9px;
     transform: scale(1);
-}
-
-#cursor.active {
-    opacity: 0;
-    transform: scale(0);
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    &.active {
+        opacity: 0;
+        transform: scale(0);
+    }
+    &.dark {
+        background-color: black;
+    }
+    &.hidden {
+        transform: scale(0.001);
+    }
 }
 
 #aura {
     width: 46px;
     height: 46px;
-    border: 1px solid rgba(0, 0, 0, 0.2);
-    background-color: rgba(0, 0, 0, 0.027);
-    transform: translate(5px, 5px);
-}
-
-#aura.active {
-    border: 1.2px solid rgba(0, 0, 0, 0.33);
-    transform: scale(1.2);
-}
-
-#aura.hiden,
-#cursor.hiden {
-    transform: scale(0.001);
-}
-
-#cursor.dark {
-    background-color: white;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    background-color: rgba(255, 255, 255, 0.027);
+    //transform: translate(5px, 5px);
+    transform: translate(-50%, -50%);
+    &.active {
+        border: 1.2px solid rgba(0, 0, 0, 0.33);
+        transform: scale(1.2);
+    }
+    &.dark {
+        border: 1px solid rgba(0, 0, 0, 0.2);
+        background-color: rgba(0, 0, 0, 0.027);
+        transform: translate(5px, 5px);
+        transform: translate(-50%, -50%);
+    }
+    &.hidden {
+        transform: scale(0.001);
+    }
 }
 
 #cursor.dark.active {
     opacity: 1;
     transform: scale(1);
-}
-
-#aura.dark {
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    background-color: rgba(255, 255, 255, 0.027);
-    transform: translate(5px, 5px);
 }
 
 #aura.dark.active {

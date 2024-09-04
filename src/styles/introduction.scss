@@ -31,7 +31,7 @@
         }
     }
     .introduction-wrapper {
-        width: 85%;
+        width: 87.5%;
         display: flex;
         flex-direction: row;
         justify-content: space-between;
@@ -211,16 +211,6 @@
     }
 }
 
-
-/*@keyframes gradient-header-bottom-move {
-    0% {
-        transform: translate(-27%, 35%);
-    }
-    100% {
-        transform: translate(27%, 35%);
-    }
-}*/
-
 @keyframes gradient-header-left-move {
     0% {
         transform: translate(-35%, -20%);
@@ -230,15 +220,52 @@
     }
 }
 
-@media screen and (max-width:1500px) {
+//! 1440px MacBook
+@media screen and (max-width:1550px) {
     .introduction--section {
         .introduction-wrapper {
             width: 90%;
             h2 {
-                font-size: 7.5rem;
+                font-size: 6.75rem;
+                margin-bottom: 9vh;
             }
             .introduction__description p {
-                font-size: 2.5rem;
+                font-size: 2.25rem;
+                height: 3.25rem;
+            }
+        }
+    }
+}
+
+//? M - laptops
+@media screen and (max-width:1370px) {
+    .introduction--section {
+        .introduction-wrapper {
+            width: 92.5%;
+            h2 {
+                font-size: 6.5rem;
+                margin-bottom: 10.5vh;
+            }
+            .introduction__description p {
+                font-size: 2.15rem;
+                letter-spacing: 0.75px;
+            }
+        }
+    }
+}
+
+//? S - laptops
+@media screen and (max-width:1285px) {
+    .introduction--section {
+        .introduction-wrapper {
+            width: 92.5%;
+            h2 {
+                font-size: 6.5rem;
+                margin-bottom: 10vh;
+            }
+            .introduction__description p {
+                font-size: 2.15rem;
+                letter-spacing: 0.5px;
             }
         }
     }

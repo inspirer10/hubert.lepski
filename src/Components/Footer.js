@@ -15,8 +15,22 @@ function Footer() {
         return () => clearInterval(intervalId);
     }, []);
 
-    const hours = date.getHours().toString().padStart(2, '0');
-    const minutes = date.getMinutes().toString().padStart(2, '0');
+    const formatTime = (date, options) => {
+        try {
+            return new Intl.DateTimeFormat('pl-PL', {
+                timeZone: 'Europe/Warsaw',
+                ...options,
+            })
+                .format(date)
+                .padStart(2, '0'); // Użyj padStart, aby zawsze mieć dwie cyfry
+        } catch (error) {
+            console.error('Formatting error:', error);
+            return '00';
+        }
+    };
+
+    const formattedTimeHours = formatTime(date, { hour: '2-digit' });
+    const formattedTimeMinutes = formatTime(date, { minute: '2-digit' });
 
     return (
         <footer>
@@ -106,9 +120,9 @@ function Footer() {
 
                         <summary>
                             <p className='info'>
-                                Wrocław, Poland {hours}
+                                Wrocław, Poland {formattedTimeHours}
                                 <span className='colon'>:</span>
-                                {minutes}
+                                {formattedTimeMinutes}
                             </p>
 
                             <Link

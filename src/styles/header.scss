@@ -187,3 +187,10 @@ header {
         transform: scale(3.2);
     }
 }
+
+//? M - laptops
+@media screen and (max-width:1370px) {
+    header nav .nav-links .header_button {
+        padding: 14px 30px;
+    }
+}

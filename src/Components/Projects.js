@@ -39,7 +39,7 @@ function Projects() {
             name: 'Astra NFT',
             icon: '💸',
             color: 'linear-gradient(to right top, #9f4fec, #7f43cc, #6138ac, #452b8d, #2c1f6e, #221a60, #181453, #0e0f46, #0e0f46, #0e0f46, #0e0f46, #0e0f46)',
-            src: 'astraNFTScroll.png',
+            src: 'astraNFTScroll.jpg',
             url: 'https://astra-nft-sigma.vercel.app/',
             id: 11,
         },
@@ -74,7 +74,7 @@ function Projects() {
         {
             name: 'Astra Crypto',
             icon: '📈',
-            color: 'linear-gradient(to right top, #000, #0f0f0f)',
+            color: 'linear-gradient(to right top, #000, rgb(20, 20, 20))',
             src: 'astraCrypto-scroll.png',
             url: 'https://astra-crypto.vercel.app/',
             id: 12,

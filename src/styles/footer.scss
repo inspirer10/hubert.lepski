@@ -158,22 +158,74 @@ footer {
     }
 }
 
-@media screen and (max-width:1500px) {
-    footer .footer_content-container .footer_content-wrapper {
-        article {
-            width: 90%;
-            div {
-                .heading,
-                .subHeading {
-                    font-size: 2.75rem;
-                    span {
+@media screen and (max-width:1550px) {
+    footer .footer_content-container {
+        .footer_content-wrapper {
+            justify-content: center;
+            article {
+                width: 90%;
+                div {
+                    .heading,
+                    .subHeading {
                         font-size: 2.75rem;
+                        span {
+                            font-size: 2.75rem;
+                        }
+                    }
+                }
+            }
+            main {
+                width: 90%;
+            }
+        }
+    }
+}
+
+//? macbook
+@media screen and (max-width:1370px) {
+    footer {
+        height: 75vh;
+        .footer_content-container {
+            height: calc(100vh + 75vh);
+            .footer_content-wrapper {
+                height: 75vh;
+                top: calc(100vh - 75vh);
+                article {
+                    div {
+                        .heading,
+                        .subHeading {
+                            font-size: 2.5rem;
+                            span {
+                                font-size: 2.5rem;
+                            }
+                        }
+                    }
+                    #footer_svg {
+                        width: 45%;
                     }
                 }
             }
         }
-        main {
-            width: 90%;
+    }
+}
+
+//?  S - laptops
+@media screen and (max-width:1285px) {
+    footer {
+        .footer_content-container {
+            .footer_content-wrapper {
+                article {
+                    div {
+                        .heading,
+                        .subHeading {
+                            font-size: 2.25rem;
+                            span {
+                                font-size: 2.25rem;
+                            }
+                        }
+                    }
+                }
+            }
         }
     }
 }

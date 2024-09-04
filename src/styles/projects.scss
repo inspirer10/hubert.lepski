@@ -114,6 +114,10 @@
                 opacity: 0;
                 transition: all 0.1s ease-out;
                 margin-right: 0.5rem;
+                width: 4.25rem;
+                display: flex;
+                align-items: center;
+                justify-content: center;
             }
             h3 {
                 font-family: 'SF Pro Display', sans-serif;
@@ -205,7 +209,7 @@
         height: 75px;
         border-radius: 50%;
         position: absolute;
-        z-index: 2;
+        z-index: 1001;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -216,23 +220,80 @@
     }
 }
 
-@media screen and (max-width:1500px) {
+@media screen and (max-width:1550px) {
+    .slidingImages .slider {
+        width: 130vw;
+    }
     .projects-gallery {
         .fixed_projects {
-            font-size: 2rem;
+            font-size: 1.9rem;
             letter-spacing: 12.5px;
-            transform: translate(0vh, -175%);
+            transform: translate(0vh, -190%);
+        }
+        .modalContainer {
+            width: 30vw;
+            height: 37.5vh;
         }
         .projects-gallery-container {
             width: 85%;
         }
         .project {
             padding: 5vh 60px;
-            ;
             .name-wrapper {
                 h3 {
                     font-size: 50px;
                 }
+            }
+        }
+    }
+}
+
+//? M - Laptop
+@media screen and (max-width:1370px) {
+    .slidingImages .slider {
+        width: 135vw;
+    }
+    .projects-gallery {
+        .fixed_projects {
+            font-size: 1.9rem;
+            letter-spacing: 12.5px;
+            transform: translate(0vh, -190%);
+        }
+        .modalContainer {
+            width: 30vw;
+            height: 40vh;
+        }
+        .projects-gallery-container {
+            width: 85%;
+        }
+        .project {
+            padding: 5vh 55px;
+            .name-wrapper {
+                h3 {
+                    font-size: 45px;
+                }
+            }
+        }
+    }
+}
+
+//?  S - laptops
+@media screen and (max-width:1285px) {
+    .projects-gallery {
+        .fixed_projects {
+            font-size: 1.8rem;
+            letter-spacing: 12.5px;
+            transform: translate(0vh, -180%);
+        }
+        .modalContainer {
+            width: 31vw;
+            height: 37vh;
+        }
+        .project {
+            padding: 3.75vh 50px;
+            padding-left: 37.5px;
+            .name-wrapper span {
+                font-size: 40px;
             }
         }
     }
