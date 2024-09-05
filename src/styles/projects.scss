@@ -323,10 +323,15 @@
         .modalContainer {
             width: 31vw;
             height: 37vh;
+            display: none;
+        }
+        .cursor-gallery,
+        .cursorLabel {
+            display: none;
         }
         .project {
-            padding: 3vh 20px;
-            justify-content: center;
+            padding: 2.75vh 10px;
+            justify-content: flex-start;
             .name-wrapper {
                 h3 {
                     font-size: 25px;
@@ -335,7 +340,9 @@
                     letter-spacing: 0.25px;
                 }
                 span {
-                    display: none;
+                    display: flex;
+                    opacity: 1;
+                    font-size: 28px;
                 }
             }
             p {

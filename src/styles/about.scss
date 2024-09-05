@@ -462,6 +462,7 @@
         .cards-wrapper {
             flex-direction: column;
             align-items: center;
+            margin-top: -10vh;
             .card {
                 width: 95%;
                 min-height: 47.5vh;
@@ -483,12 +484,14 @@
         }
         .technologies-slider {
             margin-top: 0vh;
+            display: none;
             .slider-items {
                 gap: 3.5rem;
             }
         }
         .skills-showcase-wrapper {
             flex-direction: column;
+            margin-top: 0;
             h5 {
                 text-align: center;
                 width: 100%;

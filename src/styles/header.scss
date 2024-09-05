@@ -197,10 +197,6 @@ header {
 
 //? smartphones
 @media screen and (max-width: 650px) {
-    body,
-    html {
-        overflow-x: hidden;
-    }
     header nav {
         padding: 0.5rem 1vw;
         .person {
@@ -222,7 +218,7 @@ header {
         }
         .nav-links {
             .link {
-                font-size: 15px;
+                font-size: 14.25px;
                 margin: 0 0.15rem;
             }
             .header_button {
