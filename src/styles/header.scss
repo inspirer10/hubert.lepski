@@ -196,24 +196,28 @@ header {
 }
 
 //? smartphones
-@media screen and (max-width: 650px) {
+@media screen and (max-width: 750px) {
     header nav {
         padding: 0.5rem 1vw;
         .person {
             .image_text {
                 p {
                     font-size: 15px;
-                    letter-spacing: 0.7px;
+                    letter-spacing: 0.5px;
                 }
                 .availability {
                     font-size: 12px;
-                    letter-spacing: 0.7px;
+                    letter-spacing: 0.5px;
                 }
             }
             .image {
                 margin-right: 0.5rem;
                 height: 5vh;
                 width: 5vh;
+                .dot {
+                    width: 9px;
+                    height: 9px;
+                }
             }
         }
         .nav-links {
