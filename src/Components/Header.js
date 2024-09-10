@@ -80,7 +80,7 @@ function Header() {
                     </Link>
 
                     <a
-                        href='CV_HŁ.pdf'
+                        href='/CV/CV.pdf'
                         download='Hubert Łepski CV.pdf'
                         target='_blank'
                         rel='noopener noreferrer'

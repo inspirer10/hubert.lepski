@@ -202,12 +202,12 @@ header {
         .person {
             .image_text {
                 p {
-                    font-size: 15px;
-                    letter-spacing: 0.5px;
+                    font-size: 14.5px;
+                    letter-spacing: 0.25px;
                 }
                 .availability {
-                    font-size: 12px;
-                    letter-spacing: 0.5px;
+                    font-size: 11.25px;
+                    letter-spacing: 0.4px;
                 }
             }
             .image {
@@ -215,14 +215,14 @@ header {
                 height: 5vh;
                 width: 5vh;
                 .dot {
-                    width: 9px;
-                    height: 9px;
+                    width: 8px;
+                    height: 8px;
                 }
             }
         }
         .nav-links {
             .link {
-                font-size: 14.25px;
+                font-size: 14px;
                 margin: 0 0.15rem;
             }
             .header_button {
