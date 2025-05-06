@@ -10,7 +10,7 @@ import Projects from '@/Components/Projects';
 import AboutParallax from '@/Components/AboutParallax';
 
 //import LocomotiveScroll from 'locomotive-scroll';
-import Lenis from 'lenis';
+//import Lenis from 'lenis';
 import { AnimatePresence } from 'framer-motion';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
